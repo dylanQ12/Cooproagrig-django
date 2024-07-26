@@ -1,0 +1,6 @@
+/* En tu archivo CSS */
+.swiper-button-next,
+.swiper-button-prev {
+  color: #ffffff;  /* Cambia el color de las flechas a blanco */
+  filter: drop-shadow(2px 2px 3px rgba(0, 0, 0, 0.5)); /* Añade una sombra para mejor visibilidad */
+}

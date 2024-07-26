@@ -1,0 +1,30 @@
+.btn-custom {
+    border-radius: 50px; /* Hace el botón ovalado */
+    padding: 10px 20px;
+    font-size: 16px;
+    font-weight: bold;
+    transition: background-color 0.3s ease, opacity 0.3s ease, transform 0.3s ease, box-shadow 0.3s ease;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.btn-custom-primary {
+    background-color: #001e57;
+    color: #fff;
+}
+
+.btn-custom-warning {
+    background-color: #ffc107;
+    color: #fff;
+}
+
+.btn-custom:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 8px 12px rgba(0, 0, 0, 0.2);
+}
+
+.btn-custom:active {
+    opacity: 0.7; /* Efecto de transparencia al hacer clic */
+    transform: translateY(0); /* Eliminar el efecto de levantamiento */
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+

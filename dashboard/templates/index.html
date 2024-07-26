@@ -1,0 +1,136 @@
+{% extends 'dashboard.html' %} {% load static %}
+
+{% block file_css %} 
+<link rel="stylesheet" href="{% static 'admin/css/table-img.css' %}">
+{% endblock file_css %}
+
+{% block content %}
+<h3 class="card-title text-center">Carrusel - Registros</h3>
+<div class="row">
+    <div class="col-lg-12 grid-margin stretch-card">
+      <div class="card">
+        <div class="card-body">
+            <a class="btn btn-primary btn-sm">Ver Todos</a>
+          <div class="table-responsive">
+            <table class="table table-striped">
+              <thead>
+                <tr>
+                  <th>
+                    #
+                  </th>  
+                  <th>
+                    Imagen
+                  </th>
+                  <th>
+                    Título
+                  </th>
+                  <th>
+                    Descripción
+                  </th>
+                  <th>
+                    Estado
+                  </th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td>1</td>
+                  <td class="py-1">
+                    <img src="{% static 'img/cooproagrig/4.webp' %}" alt="image" class="table-image"/>
+                  </td>
+                  <td>
+                    Cooperativa de Producción Agrícola
+                  </td>
+                  <td>
+                    No solo exportamos fruta, exportamos calidad
+                  </td>
+                  <td>
+                    <span class="badge bg-success">Activo</span>
+                  </td>
+                </tr>
+                <tr>
+                    <td>2</td>
+                    <td class="py-1">
+                      <img src="{% static 'img/cooproagrig/2.webp' %}" alt="image" class="table-image"/>
+                    </td>
+                    <td>
+                        Cosechas Sostenibles
+                    </td>
+                    <td>
+                        Cultivamos con amor por la naturaleza
+                    </td>
+                    <td>
+                      <span class="badge bg-success">Activo</span>
+                    </td>
+                  </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <h3 class="card-title text-center">Capacitaciones</h3>
+  <div class="row">
+    <div class="col-lg-12 grid-margin stretch-card">
+      <div class="card">
+        <div class="card-body">
+          <div class="table-responsive">
+            <table class="table table-striped">
+              <thead>
+                <tr>
+                  <th>
+                    #
+                  </th>  
+                  <th>Imagen</th>
+                  <th>
+                    Título
+                  </th>
+                  <th>
+                    Descripción
+                  </th>
+                  <th>
+                    Estado
+                  </th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td>1</td>
+                  <td class="py-1">
+                    <img src="{% static 'img/cooproagrig/4.webp' %}" alt="image" class="table-image"/>
+                  </td>
+                  <td>
+                    Cooperativa de Producción Agrícola
+                  </td>
+                  <td>
+                    No solo exportamos fruta, exportamos calidad
+                  </td>
+                  <td>
+                    <span class="badge bg-success">Activo</span>
+                  </td>
+                </tr>
+                <tr>
+                    <td>2</td>
+                    <td class="py-1">
+                      <img src="{% static 'img/cooproagrig/2.webp' %}" alt="image" class="table-image"/>
+                    </td>
+                    <td>
+                        Cosechas Sostenibles
+                    </td>
+                    <td>
+                        Cultivamos con amor por la naturaleza
+                    </td>
+                    <td>
+                      <span class="badge bg-success">Activo</span>
+                    </td>
+                  </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+{% endblock content %}

@@ -1,0 +1,154 @@
+{% extends 'base.html' %} {% load static %}
+
+<!-- Archivos CSS -->
+{% block style_css  %}
+<link rel="stylesheet" href="{% static 'css/banner.css' %}">
+{% endblock style_css  %}
+
+<!-- Banner -->
+{% block banner %}
+<section>
+    <div class="bg-holder overlay"
+        style="background-image:url({% static 'img/cooproagrig/Banana-plantation-in-a-closed-pavilion-2526235.jpg' %}); background-size: cover; background-position: center center;">
+        <!-- Overlay to darken the image -->
+        <div class="overlay"></div>
+    </div>
+    <!--/.bg-holder-->
+    <div class="container position-relative" style="z-index: 2;">
+        <div class="row pt-6" data-inertia='{"weight":1.5}'>
+            <div class="col-md-8 text-white" data-zanim-timeline="{}" data-zanim-trigger="scroll">
+                <div class="overflow-hidden">
+                    <h1 class="text-white fs-4 fs-md-5 mb-0 lh-1" data-zanim-xs='{"delay":0}'>Capacitaciones</h1>
+                    <div class="nav" aria-label="breadcrumb" role="navigation" data-zanim-xs='{"delay":0.1}'>
+                        <ol class="breadcrumb fs-1 ps-0 fw-bold">
+                            <li class="breadcrumb-item"><a class="text-white" href="{% url 'home' %}">Inicio</a></li>
+                            <li class="breadcrumb-item active" aria-current="page">Capacitaciones</li>
+                        </ol>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- end of .container-->
+</section>
+{% endblock banner %}
+
+
+<!-- Contenido principal -->
+{% block content %}
+<section class="bg-100">
+    <div class="container">
+        <div class="text-center mb-6">
+            <h3 class="fs-2 fs-md-3">Capacitaciones</h3>
+            <hr class="short"
+                data-zanim-xs='{"from":{"opacity":0,"width":0},"to":{"opacity":1,"width":"4.20873rem"},"duration":0.8}'
+                data-zanim-trigger="scroll" />
+        </div>
+        <div class="row g-4">
+            <div class="col-md-6 col-lg-4">
+                <div class="card">
+                    <img class="card-img-top animated-image-sections" src="{% static 'img/cooproagrig/capacitacion-1.jpg' %}"
+                        alt="Featured Image" />
+                    <div class="card-body" data-zanim-timeline="{}" data-zanim-trigger="scroll">
+                        <div class="overflow-hidden">
+                            <h5 data-zanim-xs='{"delay":0}'>Buenas Prácticas Agrícolas</h5>
+                        </div>
+                        <div class="overflow-hidden">
+                            <p class="mt-3" data-zanim-xs='{"delay":0.1}'>En COOPROAGRIG, ofrecemos capacitaciones sobre
+                                técnicas
+                                avanzadas de cultivo que garantizan la sostenibilidad y la alta calidad de nuestra
+                                producción de
+                                banano.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-6 col-lg-4">
+                <div class="card">
+                    <img class="card-img-top animated-image-sections" src="{% static 'img/cooproagrig/capacitacion-2.jpg' %}"
+                        alt="Featured Image" />
+                    <div class="card-body" data-zanim-timeline="{}" data-zanim-trigger="scroll">
+                        <div class="overflow-hidden">
+                            <h5 data-zanim-xs='{"delay":0}'>Manejo Sostenible del Agua</h5>
+                        </div>
+                        <div class="overflow-hidden">
+                            <p class="mt-3" data-zanim-xs='{"delay":0.1}'>Capacitamos a nuestros agricultores en el uso
+                                eficiente
+                                y responsable del agua para maximizar el rendimiento y minimizar el impacto ambiental.
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-6 col-lg-4">
+                <div class="card">
+                    <img class="card-img-top animated-image-sections" src="{% static 'img/cooproagrig/capacitacion-3.jpg' %}"
+                        alt="Featured Image" />
+                    <div class="card-body" data-zanim-timeline="{}" data-zanim-trigger="scroll">
+                        <div class="overflow-hidden">
+                            <h5 data-zanim-xs='{"delay":0}'>Control de Plagas y Enfermedades</h5>
+                        </div>
+                        <div class="overflow-hidden">
+                            <p class="mt-3" data-zanim-xs='{"delay":0.1}'>Ofrecemos formación sobre técnicas integradas
+                                de manejo
+                                de plagas para proteger los cultivos y asegurar la salud de nuestras plantaciones de
+                                banano.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-6 col-lg-4">
+                <div class="card">
+                    <img class="card-img-top animated-image-sections"
+                        src="{% static 'img/cooproagrig/capacitacion-4-instrumentos.jpg' %}" alt="Featured Image" />
+                    <div class="card-body" data-zanim-timeline="{}" data-zanim-trigger="scroll">
+                        <div class="overflow-hidden">
+                            <h5 data-zanim-xs='{"delay":0}'>Seguridad y Salud Ocupacional</h5>
+                        </div>
+                        <div class="overflow-hidden">
+                            <p class="mt-3" data-zanim-xs='{"delay":0.1}'>Capacitamos a nuestros trabajadores en
+                                prácticas de
+                                seguridad y salud ocupacional para garantizar un entorno de trabajo seguro y saludable.
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-6 col-lg-4">
+                <div class="card">
+                    <img class="card-img-top animated-image-sections" src="{% static 'img/cooproagrig/capacitacion-5.jpg' %}"
+                        alt="Featured Image" />
+                    <div class="card-body" data-zanim-timeline="{}" data-zanim-trigger="scroll">
+                        <div class="overflow-hidden">
+                            <h5 data-zanim-xs='{"delay":0}'>Certificaciones y Normativas</h5>
+                        </div>
+                        <div class="overflow-hidden">
+                            <p class="mt-3" data-zanim-xs='{"delay":0.1}'>Ofrecemos capacitación sobre los estándares de
+                                certificación y normativas internacionales para asegurar que nuestra producción cumpla
+                                con los
+                                requisitos globales.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-6 col-lg-4">
+                <div class="card">
+                    <img class="card-img-top animated-image-sections"
+                        src="{% static 'img/cooproagrig/capacitacion-6_2jpg.jpg' %}" alt="Featured Image" />
+                    <div class="card-body" data-zanim-timeline="{}" data-zanim-trigger="scroll">
+                        <div class="overflow-hidden">
+                            <h5 data-zanim-xs='{"delay":0}'>Innovación y Tecnología</h5>
+                        </div>
+                        <div class="overflow-hidden">
+                            <p class="mt-3" data-zanim-xs='{"delay":0.1}'>Fomentamos el uso de nuevas tecnologías y
+                                métodos
+                                innovadores en la producción agrícola para mantenernos a la vanguardia de la industria
+                                bananera.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+{% endblock content %}

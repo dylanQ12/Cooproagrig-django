@@ -1,0 +1,7 @@
+.table-image {
+    width: 200px;   /* Ajusta el tamaño según tus necesidades */
+    height: 200px;  /* Asegura que la altura sea igual al ancho para mantener la forma cuadrada */
+    object-fit: cover;  /* Asegura que la imagen cubra el contenedor cuadrado sin distorsionarse */
+    border-radius: 0;   /* Elimina cualquier borde redondeado */
+}
+

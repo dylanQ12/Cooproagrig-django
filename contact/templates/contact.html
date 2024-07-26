@@ -1,0 +1,92 @@
+{% extends 'base.html' %}
+{% load static %}
+
+<!-- Archivos CSS -->
+{% block style_css  %}
+<link rel="stylesheet" href="{% static 'css/banner.css' %}">
+{% endblock style_css  %}
+
+{% block banner %}
+<section>
+    <div class="bg-holder overlay"
+        style="background-image:url({% static 'img/cooproagrig/Banana-2.jpg' %}); background-size: cover; background-position: center center;">
+        <!-- Overlay to darken the image -->
+        <div class="overlay"></div>
+    </div>
+    <!--/.bg-holder-->
+    <div class="container position-relative" style="z-index: 2;">
+        <div class="row pt-6" data-inertia='{"weight":1.5}'>
+            <div class="col-md-8 text-white" data-zanim-timeline="{}" data-zanim-trigger="scroll">
+                <div class="overflow-hidden">
+                    <h1 class="text-white fs-4 fs-md-5 mb-0 lh-1" data-zanim-xs='{"delay":0}'>Contáctanos</h1>
+                    <div class="nav" aria-label="breadcrumb" role="navigation" data-zanim-xs='{"delay":0.1}'>
+                        <ol class="breadcrumb fs-1 ps-0 fw-bold">
+                            <li class="breadcrumb-item"><a class="text-white" href="{% url 'home' %}">Inicio</a></li>
+                            <li class="breadcrumb-item active" aria-current="page">Contáctanos</li>
+                        </ol>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- end of .container-->
+  </section>
+{% endblock banner %}
+
+
+{% block content %}
+<section class="bg-100">
+    <div class="container">
+        <div class="row align-items-stretch justify-content-center mb-4">
+            <div class="col-lg-4 mb-4 mb-lg-0">
+                <div class="card h-100">
+                    <div class="card-body px-5">
+                        <h5 class="mb-3">Ubicación</h5>
+                        <p class="mb-0 text-1100">
+                            Machala, El Oro, Ecuador</p>
+                    </div>
+                </div>
+            </div>
+            <div class="col-lg-4 mb-4 mb-lg-0">
+                <div class="card h-100">
+                    <div class="card-body px-5">
+                        <h5 class="mb-3">Dirección</h5>
+                        <p class="mb-0 text-1100">
+                            Parroquia Providencia, Urbanización Portal del Río.</p>
+                    </div>
+                </div>
+            </div>
+            <div class="col-lg-4 mb-4 mb-lg-0">
+                <div class="card h-100">
+                    <div class="card-body px-5">
+                        <h5>WhatsApp</h5>
+                        <a href="https://wa.link/w2vb7f" target="_blank"><i class="fab fa-whatsapp"></i>
+                            +593 96 309 0121</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="card">
+            <div class="card-body h-100 p-5">
+                <h5 class="mb-3">Escríbenos</h5>
+                <form>
+                    <div class="mb-4">
+                        <input class="form-control bg-white" type="text" placeholder="Escriba su Nombre"
+                            required="required" />
+                    </div>
+                    <div class="mb-4">
+                        <input class="form-control bg-white" type="email" placeholder="Escriba su Email"
+                            required="required" />
+                    </div>
+                    <div class="mb-4">
+                        <textarea class="form-control bg-white" rows="11" placeholder="Escriba una breve descripción..."
+                            required="required"></textarea>
+                    </div>
+                    <button class="btn btn-md-lg btn-primary" type="Submit"> <span
+                            class="color-white fw-600">Enviar</span></button>
+                </form>
+            </div>
+        </div>
+    </div>
+</section>
+{% endblock content %}

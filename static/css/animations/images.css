@@ -1,0 +1,20 @@
+.animated-image {
+    background-size: 100%;
+    background-position: center;
+    transition: background-size 0.5s ease;
+    overflow: hidden;
+}
+
+.animated-image:hover {
+    background-size: 110%;
+}
+
+.animated-image-sections {
+    background-size: cover;
+    background-position: center;
+    transition: transform 0.5s ease;
+}
+
+.animated-image-sections:hover {
+    transform: scale(1.1);
+}

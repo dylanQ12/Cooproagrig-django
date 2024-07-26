@@ -1,0 +1,127 @@
+{% extends 'base.html' %}
+{% load static %}
+
+<!-- Archivos CSS -->
+{% block style_css  %}
+<link rel="stylesheet" href="{% static 'css/banner.css' %}">
+{% endblock style_css  %}
+
+<!-- Banner -->
+{% block banner %}
+<!-- <section> begin ============================-->
+<section>
+    <div class="bg-holder overlay"
+        style="background-image:url({% static 'img/cooproagrig/Banana-1.jpg' %}); background-size: cover; background-position: center center;">
+        <!-- Overlay to darken the image -->
+        <div class="overlay"></div>
+    </div>
+    <!--/.bg-holder-->
+    <div class="container position-relative" style="z-index: 2;">
+        <div class="row pt-6" data-inertia='{"weight":1.5}'>
+            <div class="col-md-8 text-white" data-zanim-timeline="{}" data-zanim-trigger="scroll">
+                <div class="overflow-hidden">
+                    <h1 class="text-white fs-4 fs-md-5 mb-0 lh-1" data-zanim-xs='{"delay":0}'>Acerca de</h1>
+                    <div class="nav" aria-label="breadcrumb" role="navigation" data-zanim-xs='{"delay":0.1}'>
+                        <ol class="breadcrumb fs-1 ps-0 fw-bold">
+                            <li class="breadcrumb-item"><a class="text-white" href="{% url 'home' %}">Inicio</a></li>
+                            <li class="breadcrumb-item active" aria-current="page">Acerca de</li>
+                        </ol>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- end of .container-->
+</section>
+<!-- <section> close ============================-->
+{% endblock banner %}
+
+
+
+<!-- Contenido principal -->
+{% block content %}
+<!-- <section> begin ============================-->
+<section class="bg-100">
+    <div class="container">
+        <div class="row g-0">
+            <div class="col-lg-4 py-3 py-lg-0 position-relative animated-image-container"
+                style="min-height:400px; background-position: top">
+                <div class="bg-holder rounded-ts-lg rounded-lg-bs-lg rounded-te-lg rounded-lg-te-0 animated-image-sections"
+                    style="background-image:url('{% static "img/cooproagrig/12.jpg" %}');">
+                    <!--/.bg-holder-->
+                </div>
+            </div>
+            <div
+                class="col-lg-8 px-5 py-6 my-lg-0 bg-white rounded-lg-te-lg rounded-be-lg rounded-bs-lg rounded-lg-bs-0 d-flex align-items-center">
+                <div data-zanim-timeline="{}" data-zanim-trigger="scroll">
+                    <h5 class="animated-element" data-zanim-xs='{"delay":0}'>¿Quiénes Somos?</h5>
+                    <p class="my-4 animated-element" data-zanim-xs='{"delay":0.1}'>En la Cooperativa de Producción
+                        Agrícola,
+                        nos dedicamos a la producción de banano de la más alta calidad, comprometidos con prácticas
+                        sostenibles y responsables. Trabajamos en estrecha colaboración con nuestros agricultores para
+                        garantizar productos
+                        frescos y saludables para nuestros clientes. Además, nos enfocamos en la innovación constante y
+                        en la
+                        implementación de técnicas agrícolas avanzadas que no solo mejoran la calidad del producto, sino
+                        que
+                        también respetan y protegen el medio ambiente. Nuestro compromiso es crear un impacto positivo
+                        en las
+                        comunidades donde operamos, apoyando el desarrollo local y promoviendo la equidad y el bienestar
+                        de
+                        todos nuestros colaboradores.</p>
+                </div>
+            </div>
+        </div>
+
+        <br><br>
+        <div class="row g-0">
+            <div class="col-lg-4 py-3 py-lg-0 position-relative animated-image-container"
+                style="min-height:400px; background-position: top">
+                <div class="bg-holder rounded-ts-lg rounded-lg-bs-lg rounded-te-lg rounded-lg-te-0 animated-image-sections"
+                    style="background-image:url('{% static "img/cooproagrig/vision-2.avif" %}');">
+                </div>
+                <!--/.bg-holder-->
+            </div>
+            <div
+                class="col-lg-8 px-5 py-6 my-lg-0 bg-white rounded-lg-te-lg rounded-be-lg rounded-bs-lg rounded-lg-bs-0 d-flex align-items-center">
+                <div data-zanim-timeline="{}" data-zanim-trigger="scroll">
+                    <h5 class="animated-element" data-zanim-xs='{"delay":0}'>Misión</h5>
+                    <p class="my-4 animated-element" data-zanim-xs='{"delay":0.1}'>Nuestra misión es liderar la
+                        industria bananera mediante la innovación y el desarrollo continuo, asegurando que nuestros
+                        productos
+                        cumplan con los estándares internacionales y contribuyan al bienestar de las comunidades
+                        agrícolas. Nos
+                        enfocamos en la calidad, sostenibilidad y el impacto positivo en las comunidades donde operamos.
+                    </p>
+                </div>
+            </div>
+        </div>
+
+        <br><br>
+        <div class="row g-0">
+            <div class="col-lg-4 py-3 py-lg-0 position-relative animated-image-container"
+                style="min-height:400px; background-position: top">
+                <div class="bg-holder rounded-ts-lg rounded-lg-bs-lg rounded-te-lg rounded-lg-te-0 animated-image-sections"
+                    style="background-image:url('{% static "img/cooproagrig/vision.png" %}');">
+                </div>
+                <!--/.bg-holder-->
+            </div>
+            <div
+                class="col-lg-8 px-5 py-6 my-lg-0 bg-white rounded-lg-te-lg rounded-be-lg rounded-bs-lg rounded-lg-bs-0 d-flex align-items-center">
+                <div data-zanim-timeline="{}" data-zanim-trigger="scroll">
+                    <h5 class="animated-element" data-zanim-xs='{"delay":0}'>Visión</h5>
+                    <p class="my-4 animated-element" data-zanim-xs='{"delay":0.1}'>Ser reconocidos a nivel global como
+                        líderes en la producción de banano sostenible, contribuyendo al desarrollo económico y social de
+                        nuestras
+                        comunidades agrícolas, y promoviendo el bienestar ambiental a través de prácticas responsables e
+                        innovadoras. Aspiramos a establecer un modelo de referencia en la industria, basado en la
+                        equidad, la
+                        integridad y la excelencia.</p>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+<!-- <section> close ============================-->
+<!-- ============================================-->
+{% endblock content %}

@@ -1,0 +1,174 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="en-us" dir="ltr">
+
+{% block header %}
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <!-- ===============================================-->
+    <!--    Document Title-->
+    <!-- ===============================================-->
+    <title>{% block title %}{{ page_title }}{% endblock %}</title>
+
+    <!-- ===============================================-->
+    <!--    Favicons-->
+    <!-- ===============================================-->
+    <link rel="icon" href="{% static 'img/cooproagrig/logoamarillo.webp' %}">
+    <meta name="msapplication-TileImage" content="{% static 'img/favicons/mstile-150x150.png' %}">
+    <meta name="theme-color" content="#ffffff">
+    <script src="{% static 'vendors/overlayscrollbars/OverlayScrollbars.min.js' %}"></script>
+
+    <!-- ===============================================-->
+    <!--    Stylesheets-->
+    <!-- ===============================================-->
+    <link href="{% static 'vendors/swiper/swiper-bundle.min.css' %}" rel="stylesheet">
+    <link href="{% static 'vendors/hamburgers/hamburgers.min.css' %}" rel="stylesheet">
+    <link href="{% static 'vendors/loaders.css/loaders.min.css' %}" rel="stylesheet">
+    <link href="{% static 'css/theme.css' %}" rel="stylesheet" />
+    <link href="{% static 'css/user.css' %}" rel="stylesheet" />
+    <link rel="stylesheet" href="{% static 'css/animations/animation.css' %}">
+    <link rel="stylesheet" href="{% static 'css/animations/images.css' %}">
+    <link rel="stylesheet" href="{% static 'css/logos/logo.css' %}">
+    <link rel="stylesheet" href="{% static 'css/animations/navbar.css' %}">
+    <link rel="stylesheet" href="{% static 'css/slider/slider.css' %}">
+    <link rel="stylesheet" href="{% static 'css/animations/button.css' %}">
+    <link rel="stylesheet" href="{% static 'css/animations/production.css' %}">
+    {% block style_css %}{% endblock style_css %}
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="">
+    <link
+        href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700&amp;family=Open+Sans:wght@300;400;600;700;800&amp;display=swap"
+        rel="stylesheet">
+</head>
+{% endblock header %}
+
+
+<body>
+    {% block navbar %}
+    <div class="py-3 d-none d-sm-block text-white fw-bold" style="background-color: #001e57;">
+        <div class="container">
+            <div class="row align-items-center gx-4">
+                <div class="col-auto d-none d-lg-block fs--1"><span class="fas fa-map-marker-alt text-warning me-2"
+                        data-fa-transform="grow-3"></span>Machala, El oro, Ecuador. </div>
+                <div class="col-auto ms-md-auto order-md-2 d-none d-sm-flex fs--1 align-items-center"><span
+                        class="fas fa-clock text-warning me-2" data-fa-transform="grow-3"></span>Lun-Sab, 8:00-17:00.
+                    Domingo
+                    CERRADO</div>
+                <div class="col-auto"><span class="fas fa-phone-alt text-warning" data-fa-transform="shrink-3"></span><a
+                        class="ms-2 fs--1 d-inline text-white fw-bold" href="https://wa.link/w2vb7f"
+                        target="_blank">+593 96 309 0121</a></div>
+            </div>
+        </div>
+    </div>
+    <div class="sticky-top navbar-elixir" style="background-color: #ffffff; color: #000000;">
+        <div class="container">
+            <nav class="navbar navbar-expand-lg">
+                <a class="navbar-brand" href="{% url 'home' %}">
+                    <img class="logo-dark" src="{% static 'img/cooproagrig/logoazul.png' %}" alt="logo" />
+                </a>
+                <button class="navbar-toggler p-0" type="button" data-bs-toggle="collapse"
+                    data-bs-target="#primaryNavbarCollapse" aria-controls="primaryNavbarCollapse" aria-expanded="false"
+                    aria-label="Toggle navigation">
+                    <span class="hamburger hamburger--emphatic">
+                        <span class="hamburger-box">
+                            <span class="hamburger-inner"></span>
+                        </span>
+                    </span>
+                </button>
+                <div class="collapse navbar-collapse" id="primaryNavbarCollapse">
+                    <ul class="navbar-nav py-3 py-lg-0 mt-1 mb-2 my-lg-0 ms-lg-n1">
+                        <li class="nav-item dropdown">
+                            <a class="nav-link" href="{% url 'home' %}" role="button">Inicio</a>
+                        </li>
+                        <li class="nav-item dropdown">
+                            <a class="nav-link" href="{% url 'about' %}" role="button">Acerca de</a>
+                        </li>
+                        <li class="nav-item dropdown">
+                            <a class="nav-link dropdown-toggle dropdown-indicator" href="JavaScript:void(0)"
+                                role="button" data-bs-toggle="dropdown" aria-expanded="false">Producción</a>
+                            <ul class="dropdown-menu">
+                                <li><a class="dropdown-item" href="{% url 'training' %}">Capacitaciones</a></li>
+                                <li><a class="dropdown-item" href="{% url 'production' %}">Producción Órganica</a></li>
+                            </ul>
+                        </li>
+                        <li class="nav-item dropdown">
+                            <a class="nav-link" href="{% url 'contact' %}" role="button">Contáctanos</a>
+                        </li>
+                    </ul>
+                    <a class="btn btn-success rounded-pill btn-sm border-2 d-block d-lg-inline-block ms-auto my-3 my-lg-0"
+                        href="https://wa.link/w2vb7f" target="_blank">WhatsApp</a>
+                </div>
+            </nav>
+        </div>
+    </div>
+    {% endblock navbar %}
+
+    {% block banner %}{% endblock banner %}
+
+    <!-- ===============================================-->
+    <!--    Main Content-->
+    <!-- ===============================================-->
+    <main class="main" id="top">
+        <div class="preloader" id="preloader">
+            <div class="loader">
+                <div class="line-scale">
+                    <div></div>
+                    <div></div>
+                    <div></div>
+                    <div></div>
+                    <div></div>
+                </div>
+            </div>
+        </div>
+
+        {% block content %}{% endblock content %}
+    </main>
+    <!-- ===============================================-->
+    <!--    End of Main Content-->
+    <!-- ===============================================-->
+
+    {% block footer %}
+    <!--===============================================-->
+    <!--    Footer -->
+    <!--===============================================-->
+    <footer class="footer text-center py-4" style="background-color: #001e57;">
+        <div class="container">
+            <div class="row align-items-center opacity-85 text-white">
+                <div class="col-sm-3 text-sm-start"><a href="{% url 'home' %}"><img class="logo-ligth"
+                            src="{% static 'img/cooproagrig/logoblanco.png' %}" alt="logo" /></a></div>
+                <div class="col-sm-6 mt-3 mt-sm-0">
+                    <p class="lh-lg mb-0 fw-semi-bold">&copy; Copyright {{ current_year }} cooproagrig.org</p>
+                </div>
+                <div class="col text-sm-end mt-3 mt-sm-0"><span class="fw-semi-bold">Diseñado por Nexus IA</div>
+            </div>
+        </div>
+    </footer>
+    {% endblock footer %}
+    
+    <!-- ===============================================-->
+    <!--    JavaScripts-->
+    <!-- ===============================================-->
+    <script src="{% static 'vendors/popper/popper.min.js' %}"></script>
+    <script src="{% static 'vendors/bootstrap/bootstrap.min.js' %}"></script>
+    <script src="{% static 'vendors/is/is.min.js' %}"></script>
+    <script src="{% static 'vendors/bigpicture/BigPicture.js' %}"> </script>
+    <script src="{% static 'vendors/countup/countUp.umd.js' %}"> </script>
+    <script src="{% static 'vendors/swiper/swiper-bundle.min.js' %}"></script>
+    <script src="{% static 'vendors/fontawesome/all.min.js' %}"></script>
+    <script src="{% static 'vendors/lodash/lodash.min.js' %}"></script>
+    <script src="{% static 'vendors/imagesloaded/imagesloaded.pkgd.min.js' %}"></script>
+    <script src="{% static 'vendors/gsap/gsap.js' %}"></script>
+    <script src="{% static 'vendors/gsap/customEase.js' %}"></script>
+    <script src="{% static 'js/theme.js' %}"></script>
+    <script src="{% static 'js/production.js' %}"></script>
+    {% block scripts %} {% endblock scripts %}
+</body>
+
+</html>

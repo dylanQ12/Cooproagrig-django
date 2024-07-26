@@ -1,0 +1,15 @@
+/* Estilos para la animación de los iconos */
+.ring-icon {
+    transition: transform 0.3s ease-in-out, color 0.3s ease-in-out;
+  }
+  
+  .ring-icon:hover {
+    transform: scale(1.5);  /* Aumenta el tamaño del icono */
+    color: #04348d; /* Cambia el color al pasar el mouse, por ejemplo, a verde */
+  }
+  
+  /* Opcional: Si quieres cambiar también el color del texto */
+  .ring-icon:hover + h5 {
+    color: #04348d; /* Cambia el color del título al pasar el mouse */
+  }
+  
