@@ -1,15 +1,11 @@
 from pathlib import Path
 import os
-from dotenv import load_dotenv
+#from dotenv import load_dotenv
 
-load_dotenv()
+#load_dotenv()
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
-
-
-# Quick-start development settings - unsuitable for production
-# See https://docs.djangoproject.com/en/5.0/howto/deployment/checklist/
 
 # SECURITY WARNING: keep the secret key used in production secret!
 SECRET_KEY = 'django-insecure-zwi0k)dz=yg0v*wk!4c)ph%rqoyus17xfj!$_x*$590vr0mj+z'
@@ -17,7 +13,9 @@ SECRET_KEY = 'django-insecure-zwi0k)dz=yg0v*wk!4c)ph%rqoyus17xfj!$_x*$590vr0mj+z
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = ['cooproagrig.org', 'www.cooproagrig.org', '62.72.63.158']
+ALLOWED_HOSTS = ['*']
+
+#ALLOWED_HOSTS = ['62.72.63.158', 'srv566477.hstgr.cloud']
 
 # Application definition
 INSTALLED_APPS = [
@@ -75,11 +73,11 @@ WSGI_APPLICATION = 'cooproagrig.wsgi.application'
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.mysql',
-        'NAME': os.getenv("DB_NAME"),
-        'USER': os.getenv("DB_USER"),
-        'PASSWORD': os.getenv("DB_PASSWORD"),
-        'HOST': os.getenv("DB_HOST"),
-        'PORT': os.getenv("DB_PORT"),
+        'NAME': 'u878257056_cooproagrig',
+        'USER': 'u878257056_admin',
+        'PASSWORD': 'DylanQ_2000',
+        'HOST': 'srv1577.hstgr.io',
+        'PORT': '3306',
         'OPTIONS': {
             'init_command': "SET sql_mode='STRICT_TRANS_TABLES,ERROR_FOR_DIVISION_BY_ZERO,NO_ENGINE_SUBSTITUTION'",
         },
