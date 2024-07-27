@@ -17,7 +17,7 @@ SECRET_KEY = 'django-insecure-zwi0k)dz=yg0v*wk!4c)ph%rqoyus17xfj!$_x*$590vr0mj+z
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ['cooproagrig.org', 'www.cooproagrig.org', '62.72.63.158']
 
 # Application definition
 INSTALLED_APPS = [
@@ -70,7 +70,6 @@ WSGI_APPLICATION = 'cooproagrig.wsgi.application'
 
 # Database
 # https://docs.djangoproject.com/en/5.0/ref/settings/#databases
-
 
 # Conexión con MySQL.
 DATABASES = {
@@ -125,7 +124,7 @@ AUTH_PASSWORD_VALIDATORS = [
 
 LANGUAGE_CODE = 'es-EC'
 
-TIME_ZONE = 'Guayaquil/America'
+TIME_ZONE = 'America/Guayaquil'
 
 USE_I18N = True
 
@@ -140,10 +139,6 @@ STATIC_URL = 'static/'
 STATICFILES_DIRS = [BASE_DIR / 'static',]
 
 STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
-
-STATICFILES_DIRS = [
-    os.path.join(BASE_DIR, 'static'),
-]
 
 # Default primary key field type
 # https://docs.djangoproject.com/en/5.0/ref/settings/#default-auto-field
