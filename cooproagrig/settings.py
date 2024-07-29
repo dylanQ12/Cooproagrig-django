@@ -71,22 +71,22 @@ WSGI_APPLICATION = "cooproagrig.wsgi.application"
 
 
 # Conexión con MySQL.
-"""
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.mysql',
         'NAME': 'u878257056_cooproagrig',
         'USER': 'u878257056_admin',
-        'PASSWORD': 'DylanQ_2000',
-        'HOST': 'srv1577.hstgr.io',
+        'PASSWORD': 'Admin@0707299871',
+        'HOST': 'srv1526.hstgr.io',
         'PORT': '3306',
         'OPTIONS': {
             'init_command': "SET sql_mode='STRICT_TRANS_TABLES,ERROR_FOR_DIVISION_BY_ZERO,NO_ENGINE_SUBSTITUTION'",
         },
     }
 }
-"""
 
+
+'''
 # Conexión con PostgreSQL 16 en VPS.
 DATABASES = {
     "default": {
@@ -98,7 +98,7 @@ DATABASES = {
         "PORT": "5432",
     }
 }
-
+'''
 
 # Password validation
 # https://docs.djangoproject.com/en/5.0/ref/settings/#auth-password-validators
