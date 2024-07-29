@@ -3,6 +3,6 @@ from django.shortcuts import render
 # Create your views here.
 def contacView(request):
     context = {
-        'page_title': 'Contáctanos - Cooproagrig | Cooperativa de Producción Ágricola'
+        'page_title': 'Contáctanos - Cooproagrig | Cooperativa de Producción Agrícola'
     }
     return render(request, 'contact.html', context)
