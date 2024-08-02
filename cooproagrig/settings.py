@@ -12,11 +12,9 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 SECRET_KEY = "django-insecure-zwi0k)dz=yg0v*wk!4c)ph%rqoyus17xfj!$_x*$590vr0mj+z"
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
+DEBUG = False
 
-ALLOWED_HOSTS = ["*"]
-
-# ALLOWED_HOSTS = ['62.72.63.158', 'srv566477.hstgr.cloud']
+ALLOWED_HOSTS = ["cooproagri.org"]
 
 # Application definition
 INSTALLED_APPS = [
