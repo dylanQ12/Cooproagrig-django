@@ -2,245 +2,419 @@
 
 <!DOCTYPE html>
 <html lang="en">
+  {% block header %}
+  <head>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <title>Cooproagrig | {{ title }}</title>
+    <meta
+      content="width=device-width, initial-scale=1.0, shrink-to-fit=no"
+      name="viewport"
+    />
+    <link
+      rel="icon"
+      href="{% static 'img/cooproagrig/logoamarillo.webp' %}"
+      type="image/x-icon"
+    />
 
-{% block header %}
-<head>
-  <!-- Required meta tags -->
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-  <title>Dashboard | Cooproagrig</title>
-  <!-- base:css -->
-  <link rel="stylesheet" href="{% static 'admin/vendors/mdi/css/materialdesignicons.min.css' %}">
-  <link rel="stylesheet" href="{% static 'admin/vendors/css/vendor.bundle.base.css' %}">
-  <!-- endinject -->
-  <!-- plugin css for this page -->
-  <!-- End plugin css for this page -->
-  <!-- inject:css -->
-  <link rel="stylesheet" href="{% static 'admin/css/style.css' %}">
-  {% block file_css %} {% endblock file_css %}
-  <!-- endinject -->
-  <link rel="shortcut icon" href="{% static 'admin/images/favicon.png' %}" />
-</head>
-{% endblock header %}
+    <!-- files css -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/sweetalert2@11.0.18/dist/sweetalert2.min.css">
+    {% block files_css %} {% endblock files_css %}
 
-<body>
-  {% block sidebar %}
-  <div class="container-scroller d-flex">
-    <!-- partial:./partials/_sidebar.html -->
-    <nav class="sidebar sidebar-offcanvas" id="sidebar">
-      <ul class="nav">
-        <li class="nav-item sidebar-category">
-          <p>Navigation</p>
-          <span></span>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link" href="index.html">
-            <i class="mdi mdi-view-quilt menu-icon"></i>
-            <span class="menu-title">Dashboard</span>
-            <div class="badge badge-info badge-pill">2</div>
-          </a>
-        </li>
-        <li class="nav-item sidebar-category">
-          <p>Components</p>
-          <span></span>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link" data-toggle="collapse" href="#ui-basic" aria-expanded="false" aria-controls="ui-basic">
-            <i class="mdi mdi-palette menu-icon"></i>
-            <span class="menu-title">UI Elements</span>
-            <i class="menu-arrow"></i>
-          </a>
-          <div class="collapse" id="ui-basic">
-            <ul class="nav flex-column sub-menu">
-              <li class="nav-item"> <a class="nav-link" href="pages/ui-features/buttons.html">Buttons</a></li>
-              <li class="nav-item"> <a class="nav-link" href="pages/ui-features/typography.html">Typography</a></li>
+    <!-- Fonts and icons -->
+    <script src="{% static 'admin/js/plugin/webfont/webfont.min.js' %}"></script>
+    <script>
+      WebFont.load({
+        google: { families: ["Public Sans:300,400,500,600,700"] },
+        custom: {
+          families: [
+            "Font Awesome 5 Solid",
+            "Font Awesome 5 Regular",
+            "Font Awesome 5 Brands",
+            "simple-line-icons",
+          ],
+          urls: ["{% static 'admin/css/fonts.min.css' %}"],
+        },
+        active: function () {
+          sessionStorage.fonts = true;
+        },
+      });
+    </script>
+
+    <!-- CSS Files -->
+    <link rel="stylesheet" href="{% static 'admin/css/bootstrap.min.css' %}" />
+    <link rel="stylesheet" href="{% static 'admin/css/plugins.min.css' %}" />
+    <link rel="stylesheet" href="{% static 'admin/css/kaiadmin.min.css' %}" />
+
+    <!-- CSS Just for demo purpose, don't include it in your project -->
+    <link rel="stylesheet" href="{% static 'admin/css/demo.css' %}" />
+  </head>
+  {% endblock header %}
+  
+  <body>
+    <div class="wrapper">
+      {% block sidebar %}
+      <!-- Sidebar -->
+      <div class="sidebar" data-background-color="dark">
+        <div class="sidebar-logo">
+          <!-- Logo Header -->
+          <div class="logo-header" data-background-color="dark">
+            <a href="{% url 'dashboard' %}" class="logo">
+              <img
+                src="{% static 'img/cooproagrig/logoblanco.png' %}"
+                alt="navbar brand"
+                class="navbar-brand"
+                height="50"
+              />
+            </a>
+            <div class="nav-toggle">
+              <button class="btn btn-toggle toggle-sidebar">
+                <i class="gg-menu-right"></i>
+              </button>
+              <button class="btn btn-toggle sidenav-toggler">
+                <i class="gg-menu-left"></i>
+              </button>
+            </div>
+            <button class="topbar-toggler more">
+              <i class="gg-more-vertical-alt"></i>
+            </button>
+          </div>
+          <!-- End Logo Header -->
+        </div>
+        <div class="sidebar-wrapper scrollbar scrollbar-inner">
+          <div class="sidebar-content">
+            <ul class="nav nav-secondary">
+              <li class="nav-item">
+                <a href="{% url 'dashboard' %}">
+                  <i class="fas fa-home"></i>
+                  <p>Dashboard</p>
+                  <!-- <span class="badge badge-secondary">1</span> -->
+                </a>
+              </li>
+
+              <li class="nav-item">
+                <a href="{% url 'carrusel' %}">
+                  <i class="fas fa-chevron-right"></i>
+                  <p>Carrusel</p>
+                  <!-- <span class="badge badge-secondary">1</span> -->
+                </a>
+              </li>
+
+              <li class="nav-item">
+                <a href="{% url 'dashboard' %}">
+                  <i class="fas fa-quote-right"></i>
+                  <p>Opiniones</p>
+                  <!-- <span class="badge badge-secondary">1</span> -->
+                </a>
+              </li>
+
+              <li class="nav-item">
+                <a href="{% url 'dashboard' %}">
+                  <i class="fas fa-seedling"></i>
+                  <p>Producción</p>
+                  <!-- <span class="badge badge-secondary">1</span> -->
+                </a>
+              </li>
+
+              <li class="nav-item">
+                <a href="{% url 'dashboard' %}">
+                  <i class="fas fa-inbox"></i>
+                  <p>Bandeja</p>
+                  <span class="badge badge-primary">1</span>
+                </a>
+              </li>
+              
             </ul>
           </div>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link" href="pages/forms/basic_elements.html">
-            <i class="mdi mdi-view-headline menu-icon"></i>
-            <span class="menu-title">Form elements</span>
-          </a>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link" href="pages/charts/chartjs.html">
-            <i class="mdi mdi-chart-pie menu-icon"></i>
-            <span class="menu-title">Charts</span>
-          </a>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link" href="pages/tables/basic-table.html">
-            <i class="mdi mdi-grid-large menu-icon"></i>
-            <span class="menu-title">Tables</span>
-          </a>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link" href="pages/icons/mdi.html">
-            <i class="mdi mdi-emoticon menu-icon"></i>
-            <span class="menu-title">Icons</span>
-          </a>
-        </li>
-        <li class="nav-item sidebar-category">
-          <p>Pages</p>
-          <span></span>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link" data-toggle="collapse" href="#auth" aria-expanded="false" aria-controls="auth">
-            <i class="mdi mdi-account menu-icon"></i>
-            <span class="menu-title">User Pages</span>
-            <i class="menu-arrow"></i>
-          </a>
-          <div class="collapse" id="auth">
-            <ul class="nav flex-column sub-menu">
-              <li class="nav-item"> <a class="nav-link" href="pages/samples/login.html"> Login </a></li>
-              <li class="nav-item"> <a class="nav-link" href="pages/samples/login-2.html"> Login 2 </a></li>
-              <li class="nav-item"> <a class="nav-link" href="pages/samples/register.html"> Register </a></li>
-              <li class="nav-item"> <a class="nav-link" href="pages/samples/register-2.html"> Register 2 </a></li>
-              <li class="nav-item"> <a class="nav-link" href="pages/samples/lock-screen.html"> Lockscreen </a></li>
-            </ul>
-          </div>
-        </li>
-      </ul>
-    </nav>
-    {% endblock sidebar %}
-    
-    <!-- partial -->
-    {% block navbar %}
-    <div class="container-fluid page-body-wrapper">
-      <!-- partial:./partials/_navbar.html -->
-      <nav class="navbar col-lg-12 col-12 px-0 py-0 py-lg-4 d-flex flex-row">
-        <div class="navbar-menu-wrapper d-flex align-items-center justify-content-end">
-          <h4 class="font-weight-bold mb-0 d-none d-md-block mt-1">¡Bienvenido Admin!</h4>
-          <ul class="navbar-nav navbar-nav-right">
-            <li class="nav-item">
-              <h4 class="mb-0 font-weight-bold d-none d-xl-block">{{ current_datetime }}</h4>
-            </li>
-            <li class="nav-item dropdown mr-2">
-              <a class="nav-link count-indicator dropdown-toggle d-flex align-items-center justify-content-center" id="notificationDropdown" href="#" data-toggle="dropdown">
-                <i class="mdi mdi-email-open mx-0"></i>
-                <span class="count bg-danger">1</span>
-              </a>
-              <div class="dropdown-menu dropdown-menu-right navbar-dropdown preview-list" aria-labelledby="notificationDropdown">
-                <p class="mb-0 font-weight-normal float-left dropdown-header">Notifications</p>
-                <a class="dropdown-item preview-item">
-                  <div class="preview-thumbnail">
-                    <div class="preview-icon bg-success">
-                      <i class="mdi mdi-information mx-0"></i>
-                    </div>
-                  </div>
-                  <div class="preview-item-content">
-                    <h6 class="preview-subject font-weight-normal">Application Error</h6>
-                    <p class="font-weight-light small-text mb-0 text-muted">
-                      Just now
-                    </p>
-                  </div>
-                </a>
-                <a class="dropdown-item preview-item">
-                  <div class="preview-thumbnail">
-                    <div class="preview-icon bg-warning">
-                      <i class="mdi mdi-settings mx-0"></i>
-                    </div>
-                  </div>
-                  <div class="preview-item-content">
-                    <h6 class="preview-subject font-weight-normal">Settings</h6>
-                    <p class="font-weight-light small-text mb-0 text-muted">
-                      Private message
-                    </p>
-                  </div>
-                </a>
-                <a class="dropdown-item preview-item">
-                  <div class="preview-thumbnail">
-                    <div class="preview-icon bg-info">
-                      <i class="mdi mdi-account-box mx-0"></i>
-                    </div>
-                  </div>
-                  <div class="preview-item-content">
-                    <h6 class="preview-subject font-weight-normal">New user registration</h6>
-                    <p class="font-weight-light small-text mb-0 text-muted">
-                      2 days ago
-                    </p>
-                  </div>
-                </a>
-              </div>
-            </li>
-          </ul>
-          <button class="navbar-toggler navbar-toggler-right d-lg-none align-self-center" type="button" data-toggle="offcanvas">
-            <span class="mdi mdi-menu"></span>
-          </button>
         </div>
-        <div class="navbar-menu-wrapper navbar-search-wrapper d-none d-lg-flex align-items-center">
-          <ul class="navbar-nav mr-lg-2">
-            <li class="nav-item nav-search d-none d-lg-block">
-              <div class="input-group">
-                <input type="text" class="form-control" placeholder="Buscar..." aria-label="search" aria-describedby="search">
-              </div>
-            </li>
-          </ul>
-          <ul class="navbar-nav navbar-nav-right">
-            <li class="nav-item nav-profile dropdown">
-              <a class="nav-link dropdown-toggle" href="#" data-toggle="dropdown" id="profileDropdown">
-                <img src="{% static 'admin/images/faces/admin.png' %}" alt="profile"/>
-                <span class="nav-profile-name">Mario Quintanilla</span>
-              </a>
-              <div class="dropdown-menu dropdown-menu-right navbar-dropdown" aria-labelledby="profileDropdown">
-                <a class="dropdown-item">
-                  <i class="mdi mdi-settings text-primary"></i>
-                  Mi Perfil
-                </a>
-                <a class="dropdown-item">
-                  <i class="mdi mdi-logout text-primary"></i>
-                  Salir
-                </a>
-              </div>
-            </li>
-          </ul>
-        </div>
-      </nav>
-      {% endblock navbar %}
-      <!-- partial -->
-      
+      </div>
+      <!-- End Sidebar -->
+      {% endblock sidebar %}
+
       <div class="main-panel">
-        <div class="content-wrapper">
-          {% block content %}{% endblock content %}
-        </div>
-        
-        {% block footer %}
-        <!-- content-wrapper ends -->
-        <!-- partial:./partials/_footer.html -->
-        <footer class="footer">
-          <div class="card">
-            <div class="card-body">
-              <div class="d-sm-flex justify-content-center justify-content-sm-between">
-                <span class="text-muted d-block text-center text-sm-left d-sm-inline-block">Copyright © coproagrig.org {{ current_year }}</span>
+        <div class="main-header">
+          <div class="main-header-logo">
+            <!-- Logo Header -->
+            <div class="logo-header" data-background-color="dark">
+              <a href="index.html" class="logo">
+                <img
+                src="{% static 'img/cooproagrig/logoblanco.png' %}"
+                alt="navbar brand"
+                class="navbar-brand"
+                height="50"
+                />
+              </a>
+              <div class="nav-toggle">
+                <button class="btn btn-toggle toggle-sidebar">
+                  <i class="gg-menu-right"></i>
+                </button>
+                <button class="btn btn-toggle sidenav-toggler">
+                  <i class="gg-menu-left"></i>
+                </button>
               </div>
+              <button class="topbar-toggler more">
+                <i class="gg-more-vertical-alt"></i>
+              </button>
+            </div>
+            <!-- End Logo Header -->
+          </div>
+          {% block navbar %}
+          <!-- Navbar Header -->
+          <nav
+            class="navbar navbar-header navbar-header-transparent navbar-expand-lg border-bottom"
+          >
+            <div class="container-fluid">
+              <nav
+                class="navbar navbar-header-left navbar-expand-lg navbar-form nav-search p-0 d-none d-lg-flex"
+              >
+                <div class="input-group">
+                  <div class="input-group-prepend">
+                    <button type="submit" class="btn btn-search pe-1">
+                      <i class="fa fa-search search-icon"></i>
+                    </button>
+                  </div>
+                  <input
+                    type="text"
+                    placeholder="Buscar..."
+                    class="form-control"
+                  />
+                </div>
+              </nav>
+
+              <ul class="navbar-nav topbar-nav ms-md-auto align-items-center">
+                <li
+                  class="nav-item topbar-icon dropdown hidden-caret d-flex d-lg-none"
+                >
+                  <a
+                    class="nav-link dropdown-toggle"
+                    data-bs-toggle="dropdown"
+                    href="#"
+                    role="button"
+                    aria-expanded="false"
+                    aria-haspopup="true"
+                  >
+                    <i class="fa fa-search"></i>
+                  </a>
+                  <ul class="dropdown-menu dropdown-search animated fadeIn">
+                    <form class="navbar-left navbar-form nav-search">
+                      <div class="input-group">
+                        <input
+                          type="text"
+                          placeholder="Buscar..."
+                          class="form-control"
+                        />
+                      </div>
+                    </form>
+                  </ul>
+                </li>
+                <li class="nav-item topbar-icon dropdown hidden-caret">
+                  <a
+                    class="nav-link dropdown-toggle"
+                    href="#"
+                    id="messDropdown"
+                    role="button"
+                    data-bs-toggle="dropdown"
+                    aria-haspopup="true"
+                    aria-expanded="false"
+                  >
+                    <i class="fa fa-envelope"></i>
+                    <span class="notification">4</span>
+                  </a>
+                  <ul
+                    class="dropdown-menu notif-box animated fadeIn"
+                    aria-labelledby="notifDropdown"
+                  >
+                    <li>
+                      <div class="dropdown-title">
+                        Tienes 4 mensajes
+                      </div>
+                    </li>
+                    <li>
+                      <div class="notif-scroll scrollbar-outer">
+                        <div class="notif-center">
+                          <a href="#">
+                            <div class="notif-icon notif-primary">
+                              <i class="fa fa-user-plus"></i>
+                            </div>
+                            <div class="notif-content">
+                              <span class="block"> New user registered </span>
+                              <span class="time">5 minutes ago</span>
+                            </div>
+                          </a>
+                          <a href="#">
+                            <div class="notif-icon notif-success">
+                              <i class="fa fa-comment"></i>
+                            </div>
+                            <div class="notif-content">
+                              <span class="block">
+                                Rahmad commented on Admin
+                              </span>
+                              <span class="time">12 minutes ago</span>
+                            </div>
+                          </a>
+                          <a href="#">
+                            <div class="notif-img">
+                              <img
+                                src="{% static 'admin/img/profile2.jpg' %}"
+                                alt="Img Profile"
+                              />
+                            </div>
+                            <div class="notif-content">
+                              <span class="block">
+                                Reza send messages to you
+                              </span>
+                              <span class="time">12 minutes ago</span>
+                            </div>
+                          </a>
+                          <a href="#">
+                            <div class="notif-icon notif-danger">
+                              <i class="fa fa-heart"></i>
+                            </div>
+                            <div class="notif-content">
+                              <span class="block"> Farrah liked Admin </span>
+                              <span class="time">17 minutes ago</span>
+                            </div>
+                          </a>
+                        </div>
+                      </div>
+                    </li>
+                    <li>
+                      <a class="see-all" href="javascript:void(0);"
+                        >Ver Todos<i class="fa fa-angle-right"></i>
+                      </a>
+                    </li>
+                  </ul>
+                </li>
+                {% if user.is_authenticated %}
+                <li class="nav-item topbar-user dropdown hidden-caret">
+                  <a
+                    class="dropdown-toggle profile-pic"
+                    data-bs-toggle="dropdown"
+                    href="#"
+                    aria-expanded="false"
+                  >
+                    <div class="avatar-sm">
+                      <img
+                        src="{% static 'admin/img/admin-icon.png' %}"
+                        alt="..."
+                        class="avatar-img rounded-circle"
+                      />
+                    </div>
+                    <span class="profile-username">
+                      <span> {{ user.first_name }} </span>
+                    </span>
+                  </a>
+                  <ul class="dropdown-menu dropdown-user animated fadeIn">
+                    <div class="dropdown-user-scroll scrollbar-outer">
+                      <li>
+                        <div class="user-box">
+                          <div class="avatar-lg">
+                            <img
+                              src="{% static 'admin/img/admin-icon.png' %}"
+                              alt="image profile"
+                              class="avatar-img rounded"
+                            />
+                          </div>
+                          <div class="u-text">
+                            <h4> {{ user.first_name }} {{ user.last_name }}  </h4>
+                            {% if user.is_superuser %}
+                             <p class="text-muted">Administrador</p>
+                            {% else %} 
+                             <p class="text-muted">{{user.username}}</p>
+                            {% endif %}
+                            <a
+                              href="{% url 'perfil' %}"
+                              class="btn btn-xs btn-secondary btn-sm"
+                              >Ver perfil</a
+                            >
+                          </div>
+                        </div>
+                      </li>
+                      {% endif %}
+                      <li>
+                        <!-- <a class="dropdown-item" href="#">My Balance</a> -->
+                        <!--  <a class="dropdown-item" href="#">Inbox</a> -->
+                        <div class="dropdown-divider"></div>
+                        <!-- <a class="dropdown-item" href="#">Account Setting</a> -->
+                        <!--<div class="dropdown-divider"></div> -->
+                        <a class="dropdown-item" href="{% url 'logout' %}"><i class="fas fa-sign-out-alt"></i> Salir</a>
+                      </li>
+                    </div>
+                  </ul>
+                </li>
+              </ul>
+            </div>
+          </nav>
+          <!-- End Navbar -->
+          {% endblock navbar %} 
+        </div>
+
+        <div class="container">
+          {% block forms %} {% endblock forms %}
+          
+          <div class="page-inner">
+              {% block content %} {% endblock content %}
+          </div>
+        </div>
+
+        {% block footer %}
+        <!--<footer class="footer">
+          <div class="container-fluid d-flex justify-content-between">
+            <nav class="pull-left">
+            </nav>
+            <div class="copyright justify-content-center">
+              2024 
+              <a href="{% url 'home' %}">cooproagrig.org</a>
             </div>
           </div>
-        </footer>
-        <!-- partial -->
-        {% endblock footer %}
+        </footer>-->
+        {% endblock footer %} 
       </div>
-      <!-- main-panel ends -->
     </div>
-    <!-- page-body-wrapper ends -->
-  </div>
-  <!-- container-scroller -->
+    
+    {%  block js_files %}
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script src="https://cdn.datatables.net/1.10.25/js/jquery.dataTables.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11.0.18/dist/sweetalert2.min.js"></script>
+    <!--   Core JS Files   -->
+    <script src="{% static 'admin/js/core/jquery-3.7.1.min.js' %}"></script>
+    <script src="{% static 'admin/js/core/popper.min.js' %}"></script>
+    <script src="{% static 'admin/js/core/bootstrap.min.js' %}"></script>
 
-  <!-- base:js -->
-  <script src="{% static 'admin/vendors/js/vendor.bundle.base.js' %}"></script>
-  <!-- endinject -->
-  <!-- Plugin js for this page-->
-  <script src="{% static 'admin/vendors/chart.js/Chart.min.js' %}"></script>
-  <!-- End plugin js for this page-->
-  <!-- inject:js -->
-  <script src="{% static 'admin/js/off-canvas.js' %}"></script>
-  <script src="{% static 'admin/js/hoverable-collapse.js' %}"></script>
-  <script src="{% static 'admin/js/template.js' %}"></script>
-  <!-- endinject -->
-  <!-- plugin js for this page -->
-  <!-- End plugin js for this page -->
-  <!-- Custom js for this page-->
-  <script src="{% static 'admin/js/dashboard.js' %}"></script>
-  <!-- End custom js for this page-->
-</body>
+    <!-- jQuery Scrollbar -->
+    <script src="{% static 'admin/js/plugin/jquery-scrollbar/jquery.scrollbar.min.js' %}"></script>
+
+    <!-- Chart JS -->
+    <script src="{% static 'admin/js/plugin/chart.js/chart.min.js' %}"></script>
+
+    <!-- jQuery Sparkline -->
+    <script src="{% static 'admin/js/plugin/jquery.sparkline/jquery.sparkline.min.js' %}"></script>
+
+    <!-- Chart Circle -->
+    <!-- <script src="{% static 'admin/js/plugin/chart-circle/circles.min.js' %} "></script> -->
+
+    <!-- Datatables -->
+    <script src="{% static 'admin/js/plugin/datatables/datatables.min.js' %}"></script>
+
+    <!-- Bootstrap Notify -->
+    <script src="{% static 'admin/js/plugin/bootstrap-notify/bootstrap-notify.min.js' %}"></script>
+
+    <!-- jQuery Vector Maps -->
+    <script src="{% static 'admin/js/plugin/jsvectormap/jsvectormap.min.js' %}"></script>
+    <script src="{% static 'admin/js/plugin/jsvectormap/world.js' %}"></script>
+
+    <!-- Google Maps Plugin -->
+    <script src="{% static 'admin/js/plugin/gmaps/gmaps.js' %}"></script>
+
+    <!-- Sweet Alert -->
+    <script src="{% static 'admin/js/plugin/sweetalert/sweetalert.min.js' %}"></script>
+
+    <!-- Kaiadmin JS -->
+    <script src="{% static 'admin/js/kaiadmin.min.js' %}"></script>
+
+
+    <!-- Files Scripts JS -->
+    {% block script_js %} {% endblock script_js %}
+    
+    {%  endblock js_files %}
+</html>
 

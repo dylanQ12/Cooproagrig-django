@@ -12,9 +12,13 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 SECRET_KEY = "django-insecure-zwi0k)dz=yg0v*wk!4c)ph%rqoyus17xfj!$_x*$590vr0mj+z"
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = False
+DEBUG = True
 
-ALLOWED_HOSTS = ["cooproagri.org"]
+ALLOWED_HOSTS = []
+
+# ALLOWED_HOSTS = ["cooproagri.org", "www.cooproagri.org"]
+
+LOGIN_URL = 'login'
 
 # Application definition
 INSTALLED_APPS = [
@@ -27,9 +31,13 @@ INSTALLED_APPS = [
     "home",
     "about",
     "production",
-    "training",
     "contact",
+    "login",
+    "myprofile",
     "dashboard",
+    "carrusel",
+    "opiniones",
+    "produccionOrganica",
 ]
 
 MIDDLEWARE = [
@@ -55,8 +63,9 @@ TEMPLATES = [
                 "django.template.context_processors.request",
                 "django.contrib.auth.context_processors.auth",
                 "django.contrib.messages.context_processors.messages",
+                "cooproagrig.context_processors.all_data",
                 "home.context_processors.current_year",
-                "dashboard.context_processors.current_datetime",
+                "dashboard.context_processors.counts",
             ],
         },
     },
@@ -69,6 +78,7 @@ WSGI_APPLICATION = "cooproagrig.wsgi.application"
 
 
 # Conexión con MySQL.
+'''
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.mysql',
@@ -82,9 +92,10 @@ DATABASES = {
         },
     }
 }
-
-
 '''
+
+
+
 # Conexión con PostgreSQL 16 en VPS.
 DATABASES = {
     "default": {
@@ -92,11 +103,11 @@ DATABASES = {
         "NAME": "cooproagrig",
         "USER": "postgres",
         "PASSWORD": "1234",
-        "HOST": "62.72.63.158",
+        "HOST": "localhost",
         "PORT": "5432",
     }
 }
-'''
+
 
 # Password validation
 # https://docs.djangoproject.com/en/5.0/ref/settings/#auth-password-validators
@@ -138,6 +149,10 @@ STATICFILES_DIRS = [
 ]
 
 STATIC_ROOT = os.path.join(BASE_DIR, "staticfiles")
+
+# MEDIA FILES.
+MEDIA_URL = '/media/'
+MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
 
 # Default primary key field type
 # https://docs.djangoproject.com/en/5.0/ref/settings/#default-auto-field

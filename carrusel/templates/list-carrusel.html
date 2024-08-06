@@ -1,0 +1,91 @@
+{% extends 'dashboard.html' %}
+{% load static %}
+
+{% block files_css %} 
+<link rel="stylesheet" href="{% static 'admin/css/buttons.css' %}">
+{% endblock files_css %}
+
+{% block content %}
+<div>
+  <a class="btn btn-success mb-4" href="{% url 'crear-carrusel' %}"><i class="fas fa-plus"></i> Nuevo</a>
+  <a class="btn btn-secondary mb-4" href="{% url 'dashboard' %}"><i class="fas fa-home"></i> Inicio</a>
+</div>
+
+<div class="row">
+  <div class="col-md-12">
+    <div class="card">
+      <div class="card-header">
+        <h4 class="card-title text-center">Carrusel</h4>
+      </div>
+      <div class="card-body">
+        <div class="table-responsive">
+          <table id="basic-datatables" class="display table table-striped table-hover">
+            <thead>
+              <tr>
+                <th class="text-center">Foto</th>
+                <th class="text-center">Título</th>
+                <th class="text-center">Descripción</th>
+                <th class="text-center">Acciones</th>
+              </tr>
+            </thead>
+            <tbody>
+              {% for item in carousel_items %}
+              <tr>
+                <td class="text-center">
+                  <img src="{{ item.foto.url }}" 
+                  alt="{{ item.titulo }}" 
+                  style=
+                  " width: 85px; 
+                    height: 85px;
+                    object-fit: cover;
+                  "
+                  >
+                </td>
+                <td class="text-center">{{ item.titulo }}</td>
+                <td class="text-center">{{ item.descripcion }}</td>
+                <td class="text-center">
+                  <div class="form-button-action">
+                    <form action="{% url 'eliminar-carrusel' item.pk %}" method="post">
+                      {% csrf_token %}
+                      <a
+                       data-bs-toggle="tooltip"
+                       class="btn btn-link btn-primary btn-lg btn-enlarge"
+                       href="{% url 'editar-carrusel' item.pk %}"
+                      >
+                      <i class="fas fa-pen"></i>
+                      </a>
+                      <button
+                       type="submit"
+                       class=
+                       "btn btn-link btn-danger
+                        btn-eliminar
+                        btn-enlarge
+                       "
+                       data-url="{% url 'eliminar-carrusel' item.pk %}"
+                       >
+                        <i class="fas fa-trash"></i>
+                      </button>
+                    </form>
+                  </div>
+                </td>
+              </tr>
+              {% endfor %}
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- Elemento oculto para indicar éxito -->
+{% if success %}
+<div id="success-indicator" style="display: none;"></div>
+{% endif %}
+
+{% endblock content %}
+
+{% block script_js %}
+<script src="{% static 'admin/js/jtables.js' %}"></script>
+<script src="{% static 'admin/js/alert-confirm.js' %}"></script>
+{% endblock script_js %}

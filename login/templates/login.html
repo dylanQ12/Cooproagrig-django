@@ -1,0 +1,65 @@
+{% extends 'base.html' %} {% load static %}
+
+{% block style_css %}
+<link rel="stylesheet" href="{% static 'css/login.css' %}">
+{% endblock style_css %}
+
+{% block navbar %}{% endblock navbar %}
+
+{% block content %}
+<section class="text-center py-0 position-relative">
+    <div class="bg-holder overlay overlay-2"
+        style="background-image:url( {% static 'img/cooproagrig/bananera-1.jpg' %});">
+    </div>
+    <!--/.bg-holder-->
+
+    <div class="container">
+        <div class="row min-vh-100 align-items-center">
+            <div class="col-md-8 col-lg-5 mx-auto" data-zanim-timeline="{}" data-zanim-trigger="scroll">
+                <div class="mb-5" data-zanim-xs='{"delay":0,"duration":1}'>
+                    <a href="{% url 'login' %}"><img src="{% static 'img/cooproagrig/logoazul.png' %}"
+                            alt="logo" /></a>
+                </div>
+                <div class="card" data-zanim-xs='{"delay":0.1,"duration":1}'>
+                    <div class="card-body p-md-5">
+                        <h4 class="text-uppercase fs-0 fs-md-1" style="color: #001e57;">Iniciar Sesión</h4>
+                        <form method="post" action="{% url 'login' %}" class="text-start mt-4">
+                            {% csrf_token %}
+                            <div class="row align-items-center">
+                                <div class="col-12">
+                                    <div class="input-group">
+                                        <div class="input-group-text" style="background-color: #001e57;"><span class="far fa-user"></span></div>
+                                        <input class="form-control" type="text" name="usuario"
+                                            placeholder="Nombre de usuario"
+                                            aria-label="Text input with dropdown button" />
+                                    </div>
+                                </div>
+                                <div class="col-12 mt-2 mt-sm-4">
+                                    <div class="input-group">
+                                        <div class="input-group-text" style="background-color: #001e57;"><span class="fas fa-lock"></span></div>
+                                        <input class="form-control" type="Password" name="password" placeholder="Clave"
+                                            aria-label="Text input with dropdown button" />
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="row align-items-center mt-3">
+                                <div class="col-6">
+                                    <div class="form-check">
+                                        <input class="form-check-input" id="rememberMe" type="checkbox" value="" />
+                                        <label class="form-check-label text-500" for="rememberMe">Acuérdate de mí</label>
+                                    </div>
+                                </div>
+                                <div class="col-6 mt-2 mt-sm-3">
+                                    <button class="btn btn-primary w-100" style="background-color: #001e57;" type="submit">Entrar</button>
+                                </div>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+{% endblock content %}
+
+{% block footer %} {% endblock footer %}

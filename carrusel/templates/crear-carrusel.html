@@ -1,0 +1,77 @@
+{% extends 'dashboard.html' %} 
+{% load static %}
+
+{% block forms %} 
+<div class="row justify-content-center">
+    <div class="col-md-8 col-lg-6">
+        <div class="card mt-3">
+            <div class="card-header">
+                <div class="card-title text-center">Nuevo Carrusel</div>
+            </div>
+            <div class="card-body">
+                <div class="col-md-12">
+                    <form id="FormHandler" action="{% url 'crear-carrusel' %}" method="post" enctype="multipart/form-data">
+                        {% csrf_token %}
+                        <div class="form-group">
+                            <label for="fotoInput">Foto</label>
+                            <br><input
+                                type="file"
+                                class="form-file"
+                                id="fotoInput"
+                                name="foto"
+                                accept="image/*"
+                                required
+                            />
+                        </div>
+
+                        <div class="form-group">
+                            <label for="tituloInput">Título</label>
+                            <input
+                                type="text"
+                                class="form-control"
+                                id="tituloInput"
+                                name="titulo"
+                                placeholder="Título"
+                                required
+                            />
+                        </div>
+                        
+                        <div class="form-group">
+                            <label for="descripcionInput">Descripción</label>
+                            <input
+                                type="text"
+                                class="form-control"
+                                id="descripcionInput"
+                                name="descripcion"
+                                placeholder="Descripción"
+                                required
+                            />
+                        </div>
+
+                        <div class="card-footer text-right">
+                            <button
+                              type="submit"
+                              class="btn btn-primary"
+                            >
+                             <i class="fas fa-save"></i> 
+                             Guardar
+                            </button>
+
+                            <a class="btn btn-danger" 
+                               href="{% url 'carrusel' %}"
+                                >
+                                <i class="fas fa-times"></i> Cancelar
+                            </a>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+{% endblock forms %}
+
+{% block script_js %}
+<script src=" {% static 'admin/js/form-handler.js' %}"></script>
+{% endblock script_js %}

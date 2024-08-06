@@ -1,0 +1,9 @@
+.btn-enlarge {
+  transition: transform 0.3s ease, background-color 0.3s ease, color 0.3s ease;
+}
+
+.btn-enlarge:hover {
+  transform: scale(1.1); /* Agranda el botón un 10% */
+  background-color: #007bff; /* Cambia el fondo a un azul más oscuro */
+  color: white; /* Cambia el texto a blanco */
+}
