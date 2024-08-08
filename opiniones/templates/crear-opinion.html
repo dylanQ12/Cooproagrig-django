@@ -6,66 +6,62 @@
     <div class="col-md-8 col-lg-6">
         <div class="card mt-3">
             <div class="card-header">
-                <div class="card-title text-center">Editar Carrusel</div>
+                <div class="card-title text-center">Nueva Opinión</div>
             </div>
             <div class="card-body">
                 <div class="col-md-12">
-                    <form id="FormHandler" action="{% url 'editar-carrusel' carousel_item.pk %}" method="post" enctype="multipart/form-data">
+                    <form id="FormHandler" action="{% url 'crear-opinion' %}" method="post" enctype="multipart/form-data">
                         {% csrf_token %}
                         <div class="form-group">
-                            <label for="fotoInput">Foto</label><br>
-                            <img src="{{ carousel_item.foto.url }}" 
-                            alt="{{ carousel_item.titulo }}" 
-                            style=
-                            " width: 100px; 
-                              height: 100px; 
-                              object-fit: cover;"
-                            >
-                            <br><br><input
+                            <label for="fotoInput">Foto</label>
+                            <br><input
                                 type="file"
                                 class="form-file"
                                 id="fotoInput"
                                 name="foto"
                                 accept="image/*"
+                                required
                             />
                         </div>
 
                         <div class="form-group">
-                            <label for="tituloInput">Título</label>
+                            <label for="tituloInput">Nombre</label>
                             <input
                                 type="text"
                                 class="form-control"
-                                id="tituloInput"
-                                name="titulo"
-                                placeholder="Título"
-                                value="{{ carousel_item.titulo }}"
+                                id="nombreInput"
+                                name="nombre"
+                                placeholder="Nombre"
                                 required
                             />
                         </div>
                         
                         <div class="form-group">
-                            <label for="descripcionInput">Descripción</label>
+                            <label for="comentarioInput">Comentario</label>
                             <textarea
                                 class="form-control"
-                                id="descripcionInput"
-                                name="descripcion"
-                                placeholder="Descripción"
+                                id="comentarioInput"
+                                name="comentario"
+                                placeholder="Comentario"
                                 rows="4"
                                 required
-                            >{{ carousel_item.descripcion }}</textarea>
+                            ></textarea>
                         </div>
-                        
 
                         <div class="card-footer text-right">
                             <button
                               type="submit"
                               class="btn btn-primary"
                             >
-                            <i class="fas fa-save"></i> 
-                              Guardar
+                             <i class="fas fa-save"></i> 
+                             Guardar
                             </button>
 
-                            <a class="btn btn-danger" href="{% url 'carrusel' %}"><i class="fas fa-times"></i> Cancelar</a>
+                            <a class="btn btn-danger" 
+                               href="{% url 'opiniones' %}"
+                                >
+                                <i class="fas fa-times"></i> Cancelar
+                            </a>
                         </div>
                     </form>
                 </div>
@@ -73,6 +69,7 @@
         </div>
     </div>
 </div>
+
 {% endblock forms %}
 
 {% block script_js %}

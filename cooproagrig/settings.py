@@ -38,6 +38,8 @@ INSTALLED_APPS = [
     "carrusel",
     "opiniones",
     "produccionOrganica",
+    "inbox",
+    "django.contrib.humanize",
 ]
 
 MIDDLEWARE = [

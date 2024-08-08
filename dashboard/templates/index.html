@@ -39,7 +39,7 @@
   </div>
 
   <div class="col-sm-6 col-md-3">
-    <a href="{% url 'dashboard' %}">
+    <a href="{% url 'opiniones' %}">
       <div class="card card-stats card-round">
         <div class="card-body">
           <div class="row align-items-center">
@@ -51,7 +51,7 @@
             <div class="col col-stats ms-3 ms-sm-0">
               <div class="numbers">
                 <p class="card-category">Opiniones</p>
-                <h4 class="card-title">6</h4>
+                <h4 class="card-title">{{ opiniones_count }}</h4>
               </div>
             </div>
           </div>
@@ -61,7 +61,7 @@
   </div>
 
   <div class="col-sm-6 col-md-3">
-    <a href="{% url 'dashboard' %}">
+    <a href="{% url 'produccion' %}">
       <div class="card card-stats card-round">
         <div class="card-body">
           <div class="row align-items-center">
@@ -73,7 +73,7 @@
             <div class="col col-stats ms-3 ms-sm-0">
               <div class="numbers">
                 <p class="card-category">Producción Órganica</p>
-                <h4 class="card-title">3</h4>
+                <h4 class="card-title">{{ produccion_count }}</h4>
               </div>
             </div>
           </div>
@@ -83,7 +83,7 @@
   </div>
 
   <div class="col-sm-6 col-md-3">
-    <a href="{% url 'dashboard' %}">
+    <a href="{% url 'inbox' %}">
       <div class="card card-stats card-round">
         <div class="card-body">
           <div class="row align-items-center">
@@ -95,7 +95,7 @@
             <div class="col col-stats ms-3 ms-sm-0">
               <div class="numbers">
                 <p class="card-category">Bandeja de Mensajes</p>
-                <h4 class="card-title">5</h4>
+                <h4 class="card-title">{{ inbox_count }}</h4>
               </div>
             </div>
           </div>

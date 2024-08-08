@@ -35,75 +35,26 @@
 
 {% block content %}
 <section class="bg-100">
-    <div class="container">
-      <div class="row g-0">
-        <div class="col-lg-4 py-3 py-lg-0 position-relative animated-image-container"
-          style="min-height:400px; background-position: top">
-          <div class="bg-holder rounded-ts-lg rounded-lg-bs-lg rounded-te-lg rounded-lg-te-0 animated-image-sections"
-            style="background-image:url('{% static "img/cooproagrig/IMG_8.webp" %}');">
-            <!--/.bg-holder-->
-          </div>
-        </div>
-        <div
-          class="col-lg-8 px-5 py-6 my-lg-0 bg-white rounded-lg-te-lg rounded-be-lg rounded-bs-lg rounded-lg-bs-0 d-flex align-items-center">
-          <div data-zanim-timeline="{}" data-zanim-trigger="scroll">
-            <h5 data-zanim-xs='{"delay":0}'>Compromiso con la Sostenibilidad</h5>
-            <p class="my-4" data-zanim-xs='{"delay":0.1}'>En Cooproagrig, cultivamos bananos de manera orgánica,
-              priorizando la salud del suelo y la biodiversidad. Nuestro enfoque holístico incluye técnicas naturales
-              para enriquecer el suelo, métodos biológicos para el control de plagas y prácticas de conservación del
-              agua. Al evitar agroquímicos, protegemos el medio ambiente y garantizamos alimentos saludables. Nos
-              comprometemos a ofrecer bananos de alta calidad, respetando la naturaleza y mejorando la calidad de vida
-              de nuestras comunidades. Utilizamos sistemas de riego eficientes y promovemos la biodiversidad local,
-              asegurando un equilibrio sostenible. Cuidamos del planeta y de las personas, brindamos productos frescos
-              y nutritivos.</p>
-          </div>
-        </div>
-      </div>
-
-      <br><br>
-      <div class="row g-0">
-        <div class="col-lg-4 py-3 py-lg-0 position-relative animated-image-container"
-          style="min-height:400px; background-position: top">
-          <div class="bg-holder rounded-ts-lg rounded-lg-bs-lg rounded-te-lg rounded-lg-te-0 animated-image-sections"
-            style="background-image:url('{% static "img/cooproagrig/training-img-2.webp" %}');">
-          </div>
+  <div class="container">
+    {% for item in produccion_items %}
+    <div class="row g-0 mb-4">
+      <div class="col-lg-4 py-3 py-lg-0 position-relative animated-image-container"
+        style="min-height:400px; background-position: top">
+        <div class="bg-holder rounded-ts-lg rounded-lg-bs-lg rounded-te-lg rounded-lg-te-0 animated-image-sections"
+          style="background-image:url('{{ item.foto.url }}');">
           <!--/.bg-holder-->
         </div>
-        <div
-          class="col-lg-8 px-5 py-6 my-lg-0 bg-white rounded-lg-te-lg rounded-be-lg rounded-bs-lg rounded-lg-bs-0 d-flex align-items-center">
-          <div data-zanim-timeline="{}" data-zanim-trigger="scroll">
-            <h5 data-zanim-xs='{"delay":0}'>Innovación y Desarrollo</h5>
-            <p class="my-4" data-zanim-xs='{"delay":0.1}'>En Cooproagrig, creemos en la importancia de la innovación
-              continua para mejorar nuestras prácticas agrícolas y garantizar la calidad de nuestros bananos.
-              Implementamos tecnologías avanzadas y métodos innovadores que nos permiten optimizar la producción y
-              mantener altos estándares de calidad. Nuestra dedicación al desarrollo sostenible nos impulsa a buscar
-              constantemente nuevas formas de proteger el medio ambiente y mejorar la eficiencia en nuestros procesos.
-            </p>
-          </div>
-        </div>
       </div>
-
-      <br><br>
-      <div class="row g-0">
-        <div class="col-lg-4 py-3 py-lg-0 position-relative animated-image-container"
-          style="min-height:400px; background-position: top">
-          <div class="bg-holder rounded-ts-lg rounded-lg-bs-lg rounded-te-lg rounded-lg-te-0 animated-image-sections"
-            style="background-image:url(' {% static "img/cooproagrig/1.webp" %}');">
-          </div>
-          <!--/.bg-holder-->
-        </div>
-        <div
-          class="col-lg-8 px-5 py-6 my-lg-0 bg-white rounded-lg-te-lg rounded-be-lg rounded-bs-lg rounded-lg-bs-0 d-flex align-items-center">
-          <div data-zanim-timeline="{}" data-zanim-trigger="scroll">
-            <h5 data-zanim-xs='{"delay":0}'>Compromiso con la Calidad</h5>
-            <p class="my-4" data-zanim-xs='{"delay":0.1}'>La calidad es la piedra angular de todo lo que hacemos en
-              Cooproagrig. Nos esforzamos por ofrecer bananos que no solo cumplen con los estándares internacionales
-              más rigurosos, sino que también deleitan a nuestros consumidores por su frescura y sabor. Nuestro
-              compromiso con la calidad se refleja en cada etapa del proceso de producción, desde la siembra hasta la
-              cosecha, asegurando que cada banano que llega a nuestras manos es de la más alta calidad.</p>
-          </div>
+      <div
+        class="col-lg-8 px-5 py-6 my-lg-0 bg-white rounded-lg-te-lg rounded-be-lg rounded-bs-lg rounded-lg-bs-0 d-flex align-items-center">
+        <div data-zanim-timeline="{}" data-zanim-trigger="scroll">
+          <h5 data-zanim-xs='{"delay":0}'>{{ item.titulo }}</h5>
+          <p class="my-4" data-zanim-xs='{"delay":0.1}'>{{ item.descripcion }}</p>
         </div>
       </div>
     </div>
-  </section>
+    {% endfor %}
+  </div>
+</section>
+
 {% endblock content %}

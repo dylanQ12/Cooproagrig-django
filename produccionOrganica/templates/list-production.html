@@ -7,7 +7,7 @@
 
 {% block content %}
 <div>
-  <a class="btn btn-success mb-4" href="{% url 'crear-carrusel' %}"><i class="fas fa-plus"></i> Nuevo</a>
+  <a class="btn btn-success mb-4" href="{% url 'crear-produccion' %}"><i class="fas fa-plus"></i> Nuevo</a>
   <a class="btn btn-secondary mb-4" href="{% url 'dashboard' %}"><i class="fas fa-home"></i> Inicio</a>
 </div>
 
@@ -15,7 +15,7 @@
   <div class="col-md-12">
     <div class="card">
       <div class="card-header">
-        <h4 class="card-title text-center">Carrusel</h4>
+        <h4 class="card-title text-center">Producción Órganica</h4>
       </div>
       <div class="card-body">
         <div class="table-responsive">
@@ -25,12 +25,12 @@
                 <th class="text-center">#</th>
                 <th class="text-center">Foto</th>
                 <th class="text-center">Título</th>
-                <th class="text-center">Descripción</th>
+                <!-- <th class="text-center">Descripción</th> -->
                 <th class="text-center">Acciones</th>
               </tr>
             </thead>
             <tbody>
-              {% for item in carousel_items %}
+              {% for item in production_items %}
               <tr>
                 <td class="text-center">{{  forloop.counter }}</td>
                 <td class="text-center">
@@ -44,15 +44,15 @@
                   >
                 </td>
                 <td class="text-center">{{ item.titulo }}</td>
-                <td class="text-center">{{ item.descripcion }}</td>
+                <!-- <td>{{ item.descripcion }}</td> -->
                 <td class="text-center">
                   <div class="form-button-action">
-                    <form action="{% url 'eliminar-carrusel' item.pk %}" method="post">
+                    <form action="{% url 'eliminar-produccion' item.pk %}" method="post">
                       {% csrf_token %}
                       <a
                        data-bs-toggle="tooltip"
                        class="btn btn-link btn-primary btn-lg btn-enlarge"
-                       href="{% url 'editar-carrusel' item.pk %}"
+                       href="{% url 'editar-produccion' item.pk %}"
                       >
                       <i class="fas fa-pen"></i>
                       </a>
@@ -63,7 +63,7 @@
                         btn-eliminar
                         btn-enlarge
                        "
-                       data-url="{% url 'eliminar-carrusel' item.pk %}"
+                       data-url="{% url 'eliminar-produccion' item.pk %}"
                        >
                         <i class="fas fa-trash"></i>
                       </button>

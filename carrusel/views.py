@@ -1,4 +1,4 @@
-from django.shortcuts import redirect, render, get_object_or_404
+from django.shortcuts import render, get_object_or_404
 from carrusel.models import Carousel
 from django.contrib.auth.decorators import login_required
 from django.http import JsonResponse
@@ -7,7 +7,6 @@ from django.http import JsonResponse
 @login_required
 def listView(request):
     carousel_items = Carousel.objects.all()
-    success = request.GET.get("success", False)
 
     context = {
         "title": "Carrusel",
@@ -58,9 +57,10 @@ def editView(request, pk):
     return render(request, "editar-carrusel.html", context)
 
 
+@login_required
 def deleteView(request, pk):
     if request.method == "POST":
         carousel_item = get_object_or_404(Carousel, pk=pk)
         carousel_item.delete()
-        return JsonResponse({'success': True})
-    return JsonResponse({'success': False}, status=400)
+        return JsonResponse({"success": True})
+    return JsonResponse({"success": False}, status=400)

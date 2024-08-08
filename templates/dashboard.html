@@ -5,7 +5,7 @@
   {% block header %}
   <head>
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-    <title>Cooproagrig | {{ title }}</title>
+    <title>Administrador | {{ title }}</title>
     <meta
       content="width=device-width, initial-scale=1.0, shrink-to-fit=no"
       name="viewport"
@@ -100,7 +100,7 @@
               </li>
 
               <li class="nav-item">
-                <a href="{% url 'dashboard' %}">
+                <a href="{% url 'opiniones' %}">
                   <i class="fas fa-quote-right"></i>
                   <p>Opiniones</p>
                   <!-- <span class="badge badge-secondary">1</span> -->
@@ -108,7 +108,7 @@
               </li>
 
               <li class="nav-item">
-                <a href="{% url 'dashboard' %}">
+                <a href="{% url 'produccion' %}">
                   <i class="fas fa-seedling"></i>
                   <p>Producción</p>
                   <!-- <span class="badge badge-secondary">1</span> -->
@@ -116,10 +116,12 @@
               </li>
 
               <li class="nav-item">
-                <a href="{% url 'dashboard' %}">
+                <a href="{% url 'inbox' %}">
                   <i class="fas fa-inbox"></i>
                   <p>Bandeja</p>
-                  <span class="badge badge-primary">1</span>
+                  {% if inbox_count > 0 %}
+                    <span class="badge badge-primary">{{ inbox_count }}</span>
+                  {% endif %}
                 </a>
               </li>
               
@@ -206,6 +208,7 @@
                     </form>
                   </ul>
                 </li>
+                {% if inbox_count > 0 %}
                 <li class="nav-item topbar-icon dropdown hidden-caret">
                   <a
                     class="nav-link dropdown-toggle"
@@ -216,8 +219,8 @@
                     aria-haspopup="true"
                     aria-expanded="false"
                   >
-                    <i class="fa fa-envelope"></i>
-                    <span class="notification">4</span>
+                    <i class="fa fa-envelope"></i>                    
+                    <span class="notification bg-primary">{{ inbox_count }}</span>
                   </a>
                   <ul
                     class="dropdown-menu notif-box animated fadeIn"
@@ -225,65 +228,40 @@
                   >
                     <li>
                       <div class="dropdown-title">
-                        Tienes 4 mensajes
+                        {% if inbox_count == 1 %}
+                          Tienes {{ inbox_count }} mensaje
+                        {% elif inbox_count > 1 %}  
+                          Tienes {{ inbox_count }} mensajes
+                        {% endif %}
                       </div>
                     </li>
                     <li>
+                      {% load humanize %}
+                      {% for item in inbox_items %}
                       <div class="notif-scroll scrollbar-outer">
                         <div class="notif-center">
-                          <a href="#">
+                          <a href="{%  url 'inbox' %}">
                             <div class="notif-icon notif-primary">
-                              <i class="fa fa-user-plus"></i>
+                              <i class="fa fa-user"></i>
                             </div>
                             <div class="notif-content">
-                              <span class="block"> New user registered </span>
-                              <span class="time">5 minutes ago</span>
-                            </div>
-                          </a>
-                          <a href="#">
-                            <div class="notif-icon notif-success">
-                              <i class="fa fa-comment"></i>
-                            </div>
-                            <div class="notif-content">
-                              <span class="block">
-                                Rahmad commented on Admin
-                              </span>
-                              <span class="time">12 minutes ago</span>
-                            </div>
-                          </a>
-                          <a href="#">
-                            <div class="notif-img">
-                              <img
-                                src="{% static 'admin/img/profile2.jpg' %}"
-                                alt="Img Profile"
-                              />
-                            </div>
-                            <div class="notif-content">
-                              <span class="block">
-                                Reza send messages to you
-                              </span>
-                              <span class="time">12 minutes ago</span>
-                            </div>
-                          </a>
-                          <a href="#">
-                            <div class="notif-icon notif-danger">
-                              <i class="fa fa-heart"></i>
-                            </div>
-                            <div class="notif-content">
-                              <span class="block"> Farrah liked Admin </span>
-                              <span class="time">17 minutes ago</span>
+                              <span class="block">{{ item.nombre }}</span>
+                              <span class="time">{{ item.fecha_enviado|naturaltime }}</span>
                             </div>
                           </a>
                         </div>
                       </div>
+                      {% endfor %}
                     </li>
                     <li>
-                      <a class="see-all" href="javascript:void(0);"
-                        >Ver Todos<i class="fa fa-angle-right"></i>
+                      <a class="see-all" href="{% url 'inbox' %}"
+                        >Ver todos<i class="fa fa-angle-right"></i>
                       </a>
                     </li>
                   </ul>
                 </li>
+                {% endif %}
+
                 {% if user.is_authenticated %}
                 <li class="nav-item topbar-user dropdown hidden-caret">
                   <a

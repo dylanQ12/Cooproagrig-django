@@ -1,9 +1,7 @@
 from django.db import models
 import os
-from django.conf import settings
 
 
-# Create your models here.
 class Carousel(models.Model):
     foto = models.ImageField(upload_to="img_carousel/")
     titulo = models.CharField(max_length=200)

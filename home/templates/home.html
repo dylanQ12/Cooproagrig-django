@@ -6,8 +6,9 @@
   <div class="swiper theme-slider min-vh-100"
     data-swiper='{"loop":true,"allowTouchMove":false,"autoplay":{"delay":5000},"effect":"fade","speed":800}'>
     <div class="swiper-wrapper">
+      {% for item in carrusel_items %}
       <div class="swiper-slide" data-zanim-timeline="{}">
-        <div class="bg-holder" style="background-image:url( {% static 'img/cooproagrig/4.webp' %} );">
+        <div class="bg-holder" style="background-image:url({{ item.foto.url }});">
           <div class="overlay"></div>
         </div>
         <!--/.bg-holder-->
@@ -16,12 +17,10 @@
           <div class="row min-vh-100 py-8 align-items-center" data-inertia='{"weight":1.5}'>
             <div class="col-sm-8 col-lg-7 px-5 px-sm-3">
               <div class="overflow-hidden">
-                <h1 class="fs-4 fs-md-5 lh-1" data-zanim-xs='{"delay":0}' style="color: white;">Cooperativa de
-                  Producción Agrícola</h1>
+                <h1 class="fs-4 fs-md-5 lh-1" data-zanim-xs='{"delay":0}' style="color: white;">{{ item.titulo }}</h1>
               </div>
               <div class="overflow-hidden">
-                <p class="pt-4 mb-5 fs-1 fs-md-2 lh-xs" data-zanim-xs='{"delay":0.1}' style="color: white;">¡No solo
-                  exportamos fruta, exportamos calidad!</p>
+                <p class="pt-4 mb-5 fs-1 fs-md-2 lh-xs" data-zanim-xs='{"delay":0.1}' style="color: white;">¡{{ item.descripcion }}!</p>
               </div>
               <div class="overflow-hidden">
                 <div data-zanim-xs='{"delay":0.2}'>
@@ -37,526 +36,311 @@
           </div>
         </div>
       </div>
-      <div class="swiper-slide" data-zanim-timeline="{}">
-        <div class="bg-holder" style="background-image:url( {% static 'img/cooproagrig/about-img-2.webp' %} );">
-          <div class="overlay"></div>
-        </div>
-        <!--/.bg-holder-->
-
-        <div class="container">
-          <div class="row min-vh-100 py-8 align-items-center" data-inertia='{"weight":1.5}'>
-            <div class="col-sm-8 col-lg-7 px-5 px-sm-3">
-              <div class="overflow-hidden">
-                <h1 class="fs-4 fs-md-5 lh-1" data-zanim-xs='{"delay":0}' style="color: white;">Gestión Eficiente
-                </h1>
-              </div>
-              <div class="overflow-hidden">
-                <p class="pt-4 mb-5 fs-1 fs-md-2 lh-xs" data-zanim-xs='{"delay":0.1}' style="color: white;">
-                  ¡Producción eficiente y responsable!</p>
-              </div>
-              <div class="overflow-hidden">
-                <div data-zanim-xs='{"delay":0.2}'>
-                  <a class="btn btn-custom btn-custom-primary me-3 mt-3" href="{% url 'about' %}">
-                    Leer más<span class="fas fa-chevron-right ms-2"></span>
-                  </a>
-                  <a class="btn btn-custom btn-custom-warning mt-3" href="{% url 'contact' %}">
-                    Contáctanos<span class="fas fa-chevron-right ms-2"></span>
-                  </a>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-
-      <div class="swiper-slide" data-zanim-timeline="{}">
-        <div class="bg-holder" style="background-image:url( {% static 'img/cooproagrig/6.webp' %} );">
-          <div class="overlay"></div>
-        </div>
-        <!--/.bg-holder-->
-
-        <div class="container">
-          <div class="row min-vh-100 py-8 align-items-center" data-inertia='{"weight":1.5}'>
-            <div class="col-sm-8 col-lg-7 px-5 px-sm-3">
-              <div class="overflow-hidden">
-                <h1 class="fs-4 fs-md-5 lh-1" data-zanim-xs='{"delay":0}' style="color: white;">Cosechas Sostenibles
-                </h1>
-              </div>
-              <div class="overflow-hidden">
-                <p class="pt-4 mb-5 fs-1 fs-md-2 lh-xs" data-zanim-xs='{"delay":0.1}' style="color: white;">
-                  ¡Cultivamos con amor por la naturaleza!</p>
-              </div>
-              <div class="overflow-hidden">
-                <div data-zanim-xs='{"delay":0.2}'>
-                  <a class="btn btn-custom btn-custom-primary me-3 mt-3" href="{% url 'about' %}">
-                    Leer más<span class="fas fa-chevron-right ms-2"></span>
-                  </a>
-                  <a class="btn btn-custom btn-custom-warning mt-3" href="{% url 'contact' %}">
-                    Contáctanos<span class="fas fa-chevron-right ms-2"></span>
-                  </a>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-      <div class="swiper-slide" data-zanim-timeline="{}">
-        <div class="bg-holder" style="background-image:url( {% static 'img/cooproagrig/2.webp' %} );">
-          <div class="overlay"></div>
-        </div>
-        <!--/.bg-holder-->
-
-        <div class="container">
-          <div class="row min-vh-100 py-8 align-items-center" data-inertia='{"weight":1.5}'>
-            <div class="col-sm-8 col-lg-7 px-5 px-sm-3">
-              <div class="overflow-hidden">
-                <h1 class="fs-4 fs-md-5 lh-1" data-zanim-xs='{"delay":0}' style="color: white;">Innovación y Calidad
-                </h1>
-              </div>
-              <div class="overflow-hidden">
-                <p class="pt-4 mb-5 fs-1 fs-md-2 lh-xs" data-zanim-xs='{"delay":0.1}' style="color: white;">¡Bananas
-                  de excelencia mundial!</p>
-              </div>
-              <div class="overflow-hidden">
-                <div data-zanim-xs='{"delay":0.2}'>
-                  <a class="btn btn-custom btn-custom-primary me-3 mt-3" href="{% url 'about' %}">
-                    Leer más<span class="fas fa-chevron-right ms-2"></span>
-                  </a>
-                  <a class="btn btn-custom btn-custom-warning mt-3" href="{% url 'contact' %}">
-                    Contáctanos<span class="fas fa-chevron-right ms-2"></span>
-                  </a>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-      <div class="swiper-slide" data-zanim-timeline="{}">
-        <div class="bg-holder" style="background-image:url( {% static 'img/cooproagrig/5.webp' %} );">
-          <div class="overlay"></div>
-        </div>
-        <!--/.bg-holder-->
-
-        <div class="container">
-          <div class="row min-vh-100 py-8 align-items-center" data-inertia='{"weight":1.5}'>
-            <div class="col-sm-8 col-lg-7 px-5 px-sm-3">
-              <div class="overflow-hidden">
-                <h1 class="fs-4 fs-md-5 lh-1" data-zanim-xs='{"delay":0}' style="color: white;">Tecnología Avanzada
-                </h1>
-              </div>
-              <div class="overflow-hidden">
-                <p class="pt-4 mb-5 fs-1 fs-md-2 lh-xs" data-zanim-xs='{"delay":0.1}' style="color: white;">
-                  ¡Procesos modernos para mejores productos!</p>
-              </div>
-              <div class="overflow-hidden">
-                <div data-zanim-xs='{"delay":0.2}'>
-                  <a class="btn btn-custom btn-custom-primary me-3 mt-3" href="{% url 'about' %}">
-                    Leer más<span class="fas fa-chevron-right ms-2"></span>
-                  </a>
-                  <a class="btn btn-custom btn-custom-warning mt-3" href="{% url 'contact' %}">
-                    Contáctanos<span class="fas fa-chevron-right ms-2"></span>
-                  </a>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-      <div class="swiper-slide" data-zanim-timeline="{}">
-        <div class="bg-holder" style="background-image:url( {% static 'img/cooproagrig/bananera-2.jpg' %} );">
-          <div class="overlay"></div>
-        </div>
-        <!--/.bg-holder-->
-
-        <div class="container">
-          <div class="row min-vh-100 py-8 align-items-center" data-inertia='{"weight":1.5}'>
-            <div class="col-sm-8 col-lg-7 px-5 px-sm-3">
-              <div class="overflow-hidden">
-                <h1 class="fs-4 fs-md-5 lh-1" data-zanim-xs='{"delay":0}' style="color: white;">Deber
-                  Social</h1>
-              </div>
-              <div class="overflow-hidden">
-                <p class="pt-4 mb-5 fs-1 fs-md-2 lh-xs" data-zanim-xs='{"delay":0.1}' style="color: white;">
-                  ¡Apoyamos a nuestras comunidades!</p>
-              </div>
-              <div class="overflow-hidden">
-                <div data-zanim-xs='{"delay":0.2}'>
-                  <a class="btn btn-custom btn-custom-primary me-3 mt-3" href="{% url 'about' %}">
-                    Leer más<span class="fas fa-chevron-right ms-2"></span>
-                  </a>
-                  <a class="btn btn-custom btn-custom-warning mt-3" href="{% url 'contact' %}">
-                    Contáctanos<span class="fas fa-chevron-right ms-2"></span>
-                  </a>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
+      {% endfor %}
     </div>
     <div class="swiper-nav">
       <div class="swiper-button-prev" style="color: white;"><span class="fas fa-chevron-left"></span></div>
       <div class="swiper-button-next" style="color: white;"><span class="fas fa-chevron-right"></span></div>
     </div>
   </div>
-  <!-- End Carrusel Section -->
-
-  <!-- ============================================-->
-  <!-- <section> begin ============================-->
-  <section class="bg-white text-center">
-
-    <div class="container">
-      <div class="row justify-content-center text-center">
-        <div class="col-10 col-md-6">
-          <h3 class="fs-2 fs-lg-3">Cooperativa de Producción Agrícola COOPROAGRIG te da la Bienvenida
-          </h3>
-          <p class="px-lg-4 mt-3">Somos una cooperativa dedicada a la producción y exportación de
-            banano de alta
-            calidad. Nuestra misión es brindar productos frescos y saludables, promoviendo prácticas
-            sostenibles y
-            responsables con el medio ambiente.</p>
-          <hr class="short"
-            data-zanim-xs='{"from":{"opacity":0,"width":0},"to":{"opacity":1,"width":"4.20873rem"},"duration":0.8}'
-            data-zanim-trigger="scroll" />
-        </div>
-      </div>
-      <div class="row mt-4 mt-md-5">
-        <div class="col-sm-6 col-lg-3 mt-4">
-          <div class="ring-icon mx-auto"><span class="fas fa-seedling"></span></div>
-          <h5 class="mt-4">Cultivo Sostenible</h5>
-          <p class="mb-0 mt-3 px-3">Implementamos prácticas agrícolas sostenibles para garantizar la
-            calidad y
-            frescura de nuestros productos.</p>
-        </div>
-        <div class="col-sm-6 col-lg-3 mt-4">
-          <div class="ring-icon mx-auto"><span class="fas fa-truck"></span></div>
-          <h5 class="mt-4">Logística Eficiente</h5>
-          <p class="mb-0 mt-3 px-3">Optimizamos nuestra cadena de suministro para asegurar que
-            nuestros bananos
-            lleguen frescos a su destino.</p>
-        </div>
-        <div class="col-sm-6 col-lg-3 mt-4">
-          <div class="ring-icon mx-auto"><span class="fas fa-leaf"></span></div>
-          <h5 class="mt-4">Innovación Agrícola</h5>
-          <p class="mb-0 mt-3 px-3">Utilizamos tecnología de punta para mejorar nuestros métodos de
-            cultivo y
-            aumentar la productividad.</p>
-        </div>
-        <div class="col-sm-6 col-lg-3 mt-4">
-          <div class="ring-icon mx-auto"><span class="fas fa-hand-holding-heart"></span></div>
-          <h5 class="mt-4">Compromiso Social</h5>
-          <p class="mb-0 mt-3 px-3">Nos comprometemos con nuestras comunidades locales, apoyando su
-            desarrollo y
-            bienestar.</p>
-        </div>
-      </div>
-    </div>
-    <!-- end of .container-->
-  </section>
-  <!-- <section> close ============================-->
-  <!-- ============================================-->
+</section>
+<!-- End Carrusel Section -->
 
 
-  <!-- ============================================-->
-  <!-- <section> begin ============================-->
-  <section class="pt-0">
+<!-- ============================================-->
+<!-- <section> begin ============================-->
+<section class="bg-white text-center">
 
-    <div class="container">
-      <div class="row flex-center text-center pb-6">
-        <div class="col-12">
-          <div class="position-relative mt-4 py-5 py-md-11">
-            <div class="bg-holder rounded-3 animated-image"
-              style="background-image:url( {% static 'img/cooproagrig/IMG_7.jpg' %} );">
-            </div>
-            <!--/.bg-holder-->
-            <button class="btn-elixir-play" data-bigpicture="{&quot;ytSrc&quot;:&quot;EJjdMb1O5rQ&quot;}"
-              data-zanim-trigger="scroll"
-              data-zanim-xs='{"from":{"opacity":0,"scale":0.8},"to":{"opacity":1,"scale":1},"duration":1}'><span
-                class="fas fa-play fs-1"></span></button>
-          </div>
-        </div>
-      </div>
-      <div class="row">
-        <div class="col-sm-6 col-lg-4 mt-3 mt-lg-0 px-4 px-sm-3" data-zanim-timeline="{}" data-zanim-trigger="scroll">
-          <h5 data-zanim-xs='{"delay":0}'><span class="icon text-primary me-3 fas fa-users"></span>Quiénes
-            Somos
-          </h5>
-          <p class="mt-3 pe-3 pe-lg-5" data-zanim-xs='{"delay":0.1}'>Somos una cooperativa dedicada a
-            la producción
-            y exportación de bananos de alta calidad, comprometidos con la excelencia y la
-            sostenibilidad.</p>
-        </div>
-        <div class="col-sm-6 col-lg-4 mt-3 mt-lg-0 px-4 px-sm-3" data-zanim-timeline="{}" data-zanim-trigger="scroll">
-          <h5 data-zanim-xs='{"delay":0}'><span class="icon text-primary me-3 fas fa-seedling"></span>Compromiso con
-            la Calidad</h5>
-          <p class="mt-3 pe-3 pe-lg-5" data-zanim-xs='{"delay":0.1}'>Nos dedicamos a ofrecer productos
-            de la más
-            alta calidad, garantizando frescura y sabor desde nuestras plantaciones hasta su mesa.
-          </p>
-        </div>
-        <div class="col-sm-6 col-lg-4 mt-3 mt-lg-0 px-4 px-sm-3" data-zanim-timeline="{}" data-zanim-trigger="scroll">
-          <h5 data-zanim-xs='{"delay":0}'><span class="icon text-primary me-3 fas fa-leaf"></span>Prácticas
-            Sostenibles</h5>
-          <p class="mt-3 pe-3 pe-lg-5" data-zanim-xs='{"delay":0.1}'>Implementamos prácticas agrícolas
-            sostenibles
-            para asegurar que nuestros productos sean cultivados de manera responsable con el medio
-            ambiente.</p>
-        </div>
-      </div>
-      <!-- end of .container-->
-  </section>
-  <!-- <section> close ============================-->
-  <!-- ============================================-->
-
-  <!-- ============================================-->
-  <!-- Start Production Section -->
-  <!-- <section> begin ============================-->
-  <section class="bg-100">
-    <div class="container" id="services">
-      <div class="text-center mb-6">
-        <h3 class="fs-2 fs-md-3 animated-title">Producción</h3>
-        <hr class="short animated-line"
+  <div class="container">
+    <div class="row justify-content-center text-center">
+      <div class="col-10 col-md-6">
+        <h3 class="fs-2 fs-lg-3">Cooperativa de Producción Agrícola COOPROAGRIG te da la Bienvenida
+        </h3>
+        <p class="px-lg-4 mt-3">Somos una cooperativa dedicada a la producción y exportación de
+          banano de alta
+          calidad. Nuestra misión es brindar productos frescos y saludables, promoviendo prácticas
+          sostenibles y
+          responsables con el medio ambiente.</p>
+        <hr class="short"
           data-zanim-xs='{"from":{"opacity":0,"width":0},"to":{"opacity":1,"width":"4.20873rem"},"duration":0.8}'
           data-zanim-trigger="scroll" />
       </div>
-      <div class="row g-0 position-relative mb-4 mb-lg-0">
-        <div class="col-lg-6 py-3 py-lg-0 mb-0 position-relative animated-image-container" style="min-height:400px;">
-          <div class="bg-holder rounded-ts-lg rounded-te-lg rounded-lg-te-0 animated-image"
-            style="background-image:url( {% static 'img/cooproagrig/about-img-2.webp' %} );"></div>
-          <!--/.bg-holder-->
-        </div>
-        <div
-          class="col-lg-6 px-lg-5 py-lg-6 p-4 my-lg-0 bg-white rounded-bs-lg rounded-lg-bs-0 rounded-be-lg rounded-lg-be-0 rounded-lg-te-lg">
-          <div class="elixir-caret d-none d-lg-block"></div>
-          <div class="d-flex align-items-center h-100">
-            <div data-zanim-timeline="{}" data-zanim-trigger="scroll">
-              <div class="overflow-hidden">
-                <h5 class="animated-element" data-zanim-xs='{"delay":0}'>Acerca de</h5>
-              </div>
-              <div class="overflow-hidden">
-                <p class="mt-3 animated-element" data-zanim-xs='{"delay":0.1}'>En la Cooperativa
-                  de Producción
-                  Agrícola, nos dedicamos a la producción de banano de la más alta calidad.
-                </p>
-              </div>
-              <div class="overflow-hidden">
-                <div class="d-inline-block animated-element" data-zanim-xs='{"delay":0.3}'><a
-                    class="d-flex align-items-center animated-button" href="{% url 'about' %}">Saber
-                    más
-                    <div class="overflow-hidden ms-2 animated-arrow"
-                      data-zanim-xs='{"from":{"opacity":0,"x":-30},"to":{"opacity":1,"x":0},"delay":0.8}'>
-                      <span class="d-inline-block fw-medium">&xrarr;</span>
-                    </div>
-                  </a></div>
-              </div>
-            </div>
-          </div>
-        </div>
+    </div>
+    <div class="row mt-4 mt-md-5">
+      <div class="col-sm-6 col-lg-3 mt-4">
+        <div class="ring-icon mx-auto"><span class="fas fa-seedling"></span></div>
+        <h5 class="mt-4">Cultivo Sostenible</h5>
+        <p class="mb-0 mt-3 px-3">Implementamos prácticas agrícolas sostenibles para garantizar la
+          calidad y
+          frescura de nuestros productos.</p>
       </div>
-      <div class="row g-0 position-relative mb-4 mb-lg-0">
-        <div class="col-lg-6 py-3 py-lg-0 mb-0 position-relative order-lg-2 animated-image-container"
-          style="min-height:400px;">
-          <div class="bg-holder rounded-ts-lg rounded-te-lg rounded-lg-te-0 rounded-lg-ts-0 animated-image"
-            style="background-image:url( {% static 'img/cooproagrig/production.jpg' %} );">
-          </div>
-          <!--/.bg-holder-->
-        </div>
-        <div
-          class="col-lg-6 px-lg-5 py-lg-6 p-4 my-lg-0 bg-white rounded-bs-lg rounded-lg-bs-0 rounded-be-lg rounded-lg-be-0">
-          <div class="elixir-caret d-none d-lg-block"></div>
-          <div class="d-flex align-items-center h-100">
-            <div data-zanim-timeline="{}" data-zanim-trigger="scroll">
-              <div class="overflow-hidden">
-                <h5 class="animated-element" data-zanim-xs='{"delay":0}'>Producción Órganica</h5>
-              </div>
-              <div class="overflow-hidden">
-                <p class="mt-3 animated-element" data-zanim-xs='{"delay":0.1}'>
-                  Nos comprometemos
-                  con prácticas de
-                  producción orgánica, garantizando productos saludables y sostenibles para
-                  nuestros clientes.
-                </p>
-              </div>
-              <div class="overflow-hidden">
-                <div class="d-inline-block animated-element" data-zanim-xs='{"delay":0.3}'><a
-                    class="d-flex align-items-center animated-button" href="{% url 'production' %}">Saber más
-                    <div class="overflow-hidden ms-2 animated-arrow"
-                      data-zanim-xs='{"from":{"opacity":0,"x":-30},"to":{"opacity":1,"x":0},"delay":0.8}'>
-                      <span class="d-inline-block fw-medium">&xrarr;</span>
-                    </div>
-                  </a></div>
-              </div>
-            </div>
-          </div>
-        </div>
+      <div class="col-sm-6 col-lg-3 mt-4">
+        <div class="ring-icon mx-auto"><span class="fas fa-truck"></span></div>
+        <h5 class="mt-4">Logística Eficiente</h5>
+        <p class="mb-0 mt-3 px-3">Optimizamos nuestra cadena de suministro para asegurar que
+          nuestros bananos
+          lleguen frescos a su destino.</p>
       </div>
-      <div class="row g-0 position-relative mb-4 mb-lg-0">
-        <div class="col-lg-6 py-3 py-lg-0 mb-0 position-relative animated-image-container" style="min-height:400px;">
-          <div
-            class="bg-holder rounded-ts-lg rounded-te-lg rounded-lg-te-0 rounded-lg-ts-0 rounded-bs-0 rounded-lg-bs-lg animated-image"
-            style="background-image:url( {% static 'img/cooproagrig/training-img.webp' %} );">
+      <div class="col-sm-6 col-lg-3 mt-4">
+        <div class="ring-icon mx-auto"><span class="fas fa-leaf"></span></div>
+        <h5 class="mt-4">Innovación Agrícola</h5>
+        <p class="mb-0 mt-3 px-3">Utilizamos tecnología de punta para mejorar nuestros métodos de
+          cultivo y
+          aumentar la productividad.</p>
+      </div>
+      <div class="col-sm-6 col-lg-3 mt-4">
+        <div class="ring-icon mx-auto"><span class="fas fa-hand-holding-heart"></span></div>
+        <h5 class="mt-4">Compromiso Social</h5>
+        <p class="mb-0 mt-3 px-3">Nos comprometemos con nuestras comunidades locales, apoyando su
+          desarrollo y
+          bienestar.</p>
+      </div>
+    </div>
+  </div>
+  <!-- end of .container-->
+</section>
+<!-- <section> close ============================-->
+<!-- ============================================-->
+
+
+<!-- ============================================-->
+<!-- <section> begin ============================-->
+<section class="pt-0">
+
+  <div class="container">
+    <div class="row flex-center text-center pb-6">
+      <div class="col-12">
+        <div class="position-relative mt-4 py-5 py-md-11">
+          <div class="bg-holder rounded-3 animated-image"
+            style="background-image:url( {% static 'img/cooproagrig/IMG_7.jpg' %} );">
           </div>
           <!--/.bg-holder-->
-        </div>
-        <div class="col-lg-6 px-lg-5 py-lg-6 p-4 my-lg-0 bg-white rounded-bs-lg rounded-lg-bs-0 rounded-be-lg">
-          <div class="elixir-caret d-none d-lg-block"></div>
-          <div class="d-flex align-items-center h-100">
-            <div data-zanim-timeline="{}" data-zanim-trigger="scroll">
-              <div class="overflow-hidden">
-                <h5 class="animated-element" data-zanim-xs='{"delay":0}'>Contáctanos
-                </h5>
-              </div>
-              <div class="overflow-hidden">
-                <p class="mt-3 animated-element" data-zanim-xs='{"delay":0.1}'>
-                  Nos especializamos en mejorar continuamente las habilidades y conocimientos
-                  de nuestro equipo en la producción y manejo de banano, garantizando la máxima calidad
-                  y satisfacción para nuestros clientes.
-                </p>
-              </div>
-              <div class="overflow-hidden">
-                <div class="d-inline-block animated-element" data-zanim-xs='{"delay":0.3}'><a
-                    class="d-flex align-items-center animated-button" href="{% url 'contact' %}">Saber más
-                    <div class="overflow-hidden ms-2 animated-arrow"
-                      data-zanim-xs='{"from":{"opacity":0,"x":-30},"to":{"opacity":1,"x":0},"delay":0.8}'>
-                      <span class="d-inline-block fw-medium">&xrarr;</span>
-                    </div>
-                  </a></div>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-      <div class="row mt-7">
-        <div class="col-sm-6 col-lg-4 mt-3 mt-lg-0 px-4 px-sm-3" data-zanim-timeline="{}" data-zanim-trigger="scroll">
-          <h5 data-zanim-xs='{"delay":0}'><span class="icon text-primary me-3 fas fa-tree"></span>Agricultura
-            Sostenible</h5>
-          <p class="mt-3 pe-3 pe-lg-5" data-zanim-xs='{"delay":0.1}'>Implementamos prácticas agrícolas
-            sostenibles
-            para asegurar que nuestros productos sean cultivados de manera responsable con el medio
-            ambiente.</p>
-        </div>
-        <div class="col-sm-6 col-lg-4 mt-3 mt-lg-0 px-4 px-sm-3" data-zanim-timeline="{}" data-zanim-trigger="scroll">
-          <h5 data-zanim-xs='{"delay":0}'><span class="icon text-primary me-3 fas fa-briefcase"></span>Equipo
-            Profesional</h5>
-          <p class="mt-3 pe-3 pe-lg-5" data-zanim-xs='{"delay":0.1}'>Contamos con un equipo de
-            expertos dedicados a
-            brindar productos de la más alta calidad.</p>
-        </div>
-        <div class="col-sm-6 col-lg-4 mt-3 mt-lg-0 px-4 px-sm-3" data-zanim-timeline="{}" data-zanim-trigger="scroll">
-          <h5 data-zanim-xs='{"delay":0}'><span class="icon text-primary me-3 fas fa-flask"></span>Innovación
-            Verde
-          </h5>
-          <p class="mt-3 pe-3 pe-lg-5" data-zanim-xs='{"delay":0.1}'>Aplicamos tecnología avanzada
-            para innovar en
-            prácticas agrícolas ecológicas.</p>
+          <button class="btn-elixir-play" data-bigpicture="{&quot;ytSrc&quot;:&quot;EJjdMb1O5rQ&quot;}"
+            data-zanim-trigger="scroll"
+            data-zanim-xs='{"from":{"opacity":0,"scale":0.8},"to":{"opacity":1,"scale":1},"duration":1}'><span
+              class="fas fa-play fs-1"></span></button>
         </div>
       </div>
     </div>
+    <div class="row">
+      <div class="col-sm-6 col-lg-4 mt-3 mt-lg-0 px-4 px-sm-3" data-zanim-timeline="{}" data-zanim-trigger="scroll">
+        <h5 data-zanim-xs='{"delay":0}'><span class="icon text-primary me-3 fas fa-users"></span>Quiénes
+          Somos
+        </h5>
+        <p class="mt-3 pe-3 pe-lg-5" data-zanim-xs='{"delay":0.1}'>Somos una cooperativa dedicada a
+          la producción
+          y exportación de bananos de alta calidad, comprometidos con la excelencia y la
+          sostenibilidad.</p>
+      </div>
+      <div class="col-sm-6 col-lg-4 mt-3 mt-lg-0 px-4 px-sm-3" data-zanim-timeline="{}" data-zanim-trigger="scroll">
+        <h5 data-zanim-xs='{"delay":0}'><span class="icon text-primary me-3 fas fa-seedling"></span>Compromiso con
+          la Calidad</h5>
+        <p class="mt-3 pe-3 pe-lg-5" data-zanim-xs='{"delay":0.1}'>Nos dedicamos a ofrecer productos
+          de la más
+          alta calidad, garantizando frescura y sabor desde nuestras plantaciones hasta su mesa.
+        </p>
+      </div>
+      <div class="col-sm-6 col-lg-4 mt-3 mt-lg-0 px-4 px-sm-3" data-zanim-timeline="{}" data-zanim-trigger="scroll">
+        <h5 data-zanim-xs='{"delay":0}'><span class="icon text-primary me-3 fas fa-leaf"></span>Prácticas
+          Sostenibles</h5>
+        <p class="mt-3 pe-3 pe-lg-5" data-zanim-xs='{"delay":0.1}'>Implementamos prácticas agrícolas
+          sostenibles
+          para asegurar que nuestros productos sean cultivados de manera responsable con el medio
+          ambiente.</p>
+      </div>
+    </div>
     <!-- end of .container-->
-  </section>
-  <!-- <section> close ============================-->
-  <!-- Start Production Section -->
-  <!-- ============================================-->
+</section>
+<!-- <section> close ============================-->
+<!-- ============================================-->
 
-
-  <!-- ============================================-->
-  <!-- Start Testimionials Section -->
-  <!-- <section> begin ============================-->
-  <section class="bg-white">
-    <div class="container">
-      <div class="swiper theme-slider" data-swiper='{"loop":true,"slidesPerView":1,"autoplay":{"delay":5000}}'>
-        <div class="swiper-wrapper">
-          <div class="swiper-slide">
-            <div class="row px-lg-8">
-              <div class="col-4 col-md-3 mx-auto">
-                <img class="rounded-3 mx-auto img-fluid animated-image-sections"
-                  src="{% static 'img/cooproagrig/cliente-1.jpg' %}" alt="Cliente" />
-              </div>
-              <div class="col-md-9 mt-4 mt-md-0 px-4 px-sm-3">
-                <p class="lead">El trabajo de Cooproagrig ha sido excepcional. La calidad de sus
-                  bananas ha superado
-                  nuestras expectativas y nuestros clientes están muy satisfechos.</p>
-                <h6 class="fs-0 mb-1 mt-4">Ana González</h6>
-                <!-- <p class="mb-0 text-500">Gerente de Compras, Frutas del Valle</p> -->
-              </div>
+<!-- ============================================-->
+<!-- Start Production Section -->
+<!-- <section> begin ============================-->
+<section class="bg-100">
+  <div class="container" id="services">
+    <div class="text-center mb-6">
+      <h3 class="fs-2 fs-md-3 animated-title">Producción</h3>
+      <hr class="short animated-line"
+        data-zanim-xs='{"from":{"opacity":0,"width":0},"to":{"opacity":1,"width":"4.20873rem"},"duration":0.8}'
+        data-zanim-trigger="scroll" />
+    </div>
+    <div class="row g-0 position-relative mb-4 mb-lg-0">
+      <div class="col-lg-6 py-3 py-lg-0 mb-0 position-relative animated-image-container" style="min-height:400px;">
+        <div class="bg-holder rounded-ts-lg rounded-te-lg rounded-lg-te-0 animated-image"
+          style="background-image:url( {% static 'img/cooproagrig/about-img-2.webp' %} );"></div>
+        <!--/.bg-holder-->
+      </div>
+      <div
+        class="col-lg-6 px-lg-5 py-lg-6 p-4 my-lg-0 bg-white rounded-bs-lg rounded-lg-bs-0 rounded-be-lg rounded-lg-be-0 rounded-lg-te-lg">
+        <div class="elixir-caret d-none d-lg-block"></div>
+        <div class="d-flex align-items-center h-100">
+          <div data-zanim-timeline="{}" data-zanim-trigger="scroll">
+            <div class="overflow-hidden">
+              <h5 class="animated-element" data-zanim-xs='{"delay":0}'>Acerca de</h5>
             </div>
-          </div>
-          <div class="swiper-slide">
-            <div class="row px-lg-8">
-              <div class="col-4 col-md-3 mx-auto">
-                <img class="rounded-3 mx-auto img-fluid animated-image-sections"
-                  src="{% static 'img/cooproagrig/cliente-2.jpg' %}" alt="Cliente" />
-              </div>
-              <div class="col-md-9 mt-4 mt-md-0 px-4 px-sm-3">
-                <p class="lead">Estamos muy contentos con la colaboración con Cooproagrig. Sus
-                  prácticas sostenibles
-                  y el compromiso con la calidad nos han permitido ofrecer productos frescos y
-                  saludables a nuestros
-                  consumidores.</p>
-                <h6 class="fs-0 mb-1 mt-4">Carlos Martínez</h6>
-
-              </div>
+            <div class="overflow-hidden">
+              <p class="mt-3 animated-element" data-zanim-xs='{"delay":0.1}'>En la Cooperativa
+                de Producción
+                Agrícola, nos dedicamos a la producción de banano de la más alta calidad.
+              </p>
             </div>
-          </div>
-          <div class="swiper-slide">
-            <div class="row px-lg-8">
-              <div class="col-4 col-md-3 mx-auto">
-                <img class="rounded-3 mx-auto img-fluid animated-image-sections"
-                  src="{% static 'img/cooproagrig/cliente-3.jpg' %}" alt="Cliente" />
-              </div>
-              <div class="col-md-9 mt-4 mt-md-0 px-4 px-sm-3">
-                <p class="lead">Cooproagrig ha sido un socio invaluable en nuestro negocio. La
-                  frescura y el sabor
-                  de sus bananas han mejorado significativamente nuestra oferta de productos.
-                </p>
-                <h6 class="fs-0 mb-1 mt-4">Fernando García</h6>
-              </div>
+            <div class="overflow-hidden">
+              <div class="d-inline-block animated-element" data-zanim-xs='{"delay":0.3}'><a
+                  class="d-flex align-items-center animated-button" href="{% url 'about' %}">Saber
+                  más
+                  <div class="overflow-hidden ms-2 animated-arrow"
+                    data-zanim-xs='{"from":{"opacity":0,"x":-30},"to":{"opacity":1,"x":0},"delay":0.8}'>
+                    <span class="d-inline-block fw-medium">&xrarr;</span>
+                  </div>
+                </a></div>
             </div>
-          </div>
-          <div class="swiper-slide">
-            <div class="row px-lg-8">
-              <div class="col-4 col-md-3 mx-auto">
-                <img class="rounded-3 mx-auto img-fluid animated-image-sections"
-                  src="{% static 'img/cooproagrig/cliente-4.jpg' %}" alt="Cliente" />
-              </div>
-              <div class="col-md-9 mt-4 mt-md-0 px-4 px-sm-3">
-                <p class="lead">El compromiso de Cooproagrig con la calidad y la sostenibilidad
-                  es evidente en cada
-                  uno de sus productos. Nos enorgullece trabajar con ellos.</p>
-                <h6 class="fs-0 mb-1 mt-4">Miguel Rodríguez</h6>
-
-              </div>
-            </div>
-          </div>
-          <div class="swiper-slide">
-            <div class="row px-lg-8">
-              <div class="col-4 col-md-3 mx-auto">
-                <img class="rounded-3 mx-auto img-fluid animated-image-sections"
-                  src="{% static 'img/cooproagrig/cliente-5.jpg' %}" alt="Cliente" />
-              </div>
-              <div class="col-md-9 mt-4 mt-md-0 px-4 px-sm-3">
-                <p class="lead">La relación comercial con Cooproagrig ha sido muy fructífera.
-                  Sus bananas son de
-                  excelente calidad y siempre cumplen con nuestros estándares.</p>
-                <h6 class="fs-0 mb-1 mt-4">Sofía López</h6>
-
-              </div>
-            </div>
-          </div>
-        </div>
-        <div class="swiper-nav">
-          <div class="swiper-button-prev icon-item icon-item-lg">
-            <span class="fas fa-chevron-left fs--2"></span>
-          </div>
-          <div class="swiper-button-next icon-item icon-item-lg">
-            <span class="fas fa-chevron-right fs--2"></span>
           </div>
         </div>
       </div>
     </div>
-    <!-- end of .container-->
-  </section>
-  <!-- <section> close ============================-->
-  <!-- Start Testimionials Section -->
-  <!-- ============================================-->
-  {% endblock content %}
+    <div class="row g-0 position-relative mb-4 mb-lg-0">
+      <div class="col-lg-6 py-3 py-lg-0 mb-0 position-relative order-lg-2 animated-image-container"
+        style="min-height:400px;">
+        <div class="bg-holder rounded-ts-lg rounded-te-lg rounded-lg-te-0 rounded-lg-ts-0 animated-image"
+          style="background-image:url( {% static 'img/cooproagrig/production.jpg' %} );">
+        </div>
+        <!--/.bg-holder-->
+      </div>
+      <div
+        class="col-lg-6 px-lg-5 py-lg-6 p-4 my-lg-0 bg-white rounded-bs-lg rounded-lg-bs-0 rounded-be-lg rounded-lg-be-0">
+        <div class="elixir-caret d-none d-lg-block"></div>
+        <div class="d-flex align-items-center h-100">
+          <div data-zanim-timeline="{}" data-zanim-trigger="scroll">
+            <div class="overflow-hidden">
+              <h5 class="animated-element" data-zanim-xs='{"delay":0}'>Producción Órganica</h5>
+            </div>
+            <div class="overflow-hidden">
+              <p class="mt-3 animated-element" data-zanim-xs='{"delay":0.1}'>
+                Nos comprometemos
+                con prácticas de
+                producción orgánica, garantizando productos saludables y sostenibles para
+                nuestros clientes.
+              </p>
+            </div>
+            <div class="overflow-hidden">
+              <div class="d-inline-block animated-element" data-zanim-xs='{"delay":0.3}'><a
+                  class="d-flex align-items-center animated-button" href="{% url 'production' %}">Saber más
+                  <div class="overflow-hidden ms-2 animated-arrow"
+                    data-zanim-xs='{"from":{"opacity":0,"x":-30},"to":{"opacity":1,"x":0},"delay":0.8}'>
+                    <span class="d-inline-block fw-medium">&xrarr;</span>
+                  </div>
+                </a></div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="row g-0 position-relative mb-4 mb-lg-0">
+      <div class="col-lg-6 py-3 py-lg-0 mb-0 position-relative animated-image-container" style="min-height:400px;">
+        <div
+          class="bg-holder rounded-ts-lg rounded-te-lg rounded-lg-te-0 rounded-lg-ts-0 rounded-bs-0 rounded-lg-bs-lg animated-image"
+          style="background-image:url( {% static 'img/cooproagrig/training-img.webp' %} );">
+        </div>
+        <!--/.bg-holder-->
+      </div>
+      <div class="col-lg-6 px-lg-5 py-lg-6 p-4 my-lg-0 bg-white rounded-bs-lg rounded-lg-bs-0 rounded-be-lg">
+        <div class="elixir-caret d-none d-lg-block"></div>
+        <div class="d-flex align-items-center h-100">
+          <div data-zanim-timeline="{}" data-zanim-trigger="scroll">
+            <div class="overflow-hidden">
+              <h5 class="animated-element" data-zanim-xs='{"delay":0}'>Contáctanos
+              </h5>
+            </div>
+            <div class="overflow-hidden">
+              <p class="mt-3 animated-element" data-zanim-xs='{"delay":0.1}'>
+                ¡Contáctanos! Nos especializamos en mejorar continuamente las habilidades y conocimientos
+                de nuestro equipo en la producción y manejo de banano, garantizando la máxima calidad
+                y satisfacción para nuestros clientes.
+              </p>
+            </div>
+            <div class="overflow-hidden">
+              <div class="d-inline-block animated-element" data-zanim-xs='{"delay":0.3}'><a
+                  class="d-flex align-items-center animated-button" href="{% url 'contact' %}">Saber más
+                  <div class="overflow-hidden ms-2 animated-arrow"
+                    data-zanim-xs='{"from":{"opacity":0,"x":-30},"to":{"opacity":1,"x":0},"delay":0.8}'>
+                    <span class="d-inline-block fw-medium">&xrarr;</span>
+                  </div>
+                </a></div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="row mt-7">
+      <div class="col-sm-6 col-lg-4 mt-3 mt-lg-0 px-4 px-sm-3" data-zanim-timeline="{}" data-zanim-trigger="scroll">
+        <h5 data-zanim-xs='{"delay":0}'><span class="icon text-primary me-3 fas fa-tree"></span>Agricultura
+          Sostenible</h5>
+        <p class="mt-3 pe-3 pe-lg-5" data-zanim-xs='{"delay":0.1}'>Implementamos prácticas agrícolas
+          sostenibles
+          para asegurar que nuestros productos sean cultivados de manera responsable con el medio
+          ambiente.</p>
+      </div>
+      <div class="col-sm-6 col-lg-4 mt-3 mt-lg-0 px-4 px-sm-3" data-zanim-timeline="{}" data-zanim-trigger="scroll">
+        <h5 data-zanim-xs='{"delay":0}'><span class="icon text-primary me-3 fas fa-briefcase"></span>Equipo
+          Profesional</h5>
+        <p class="mt-3 pe-3 pe-lg-5" data-zanim-xs='{"delay":0.1}'>Contamos con un equipo de
+          expertos dedicados a
+          brindar productos de la más alta calidad.</p>
+      </div>
+      <div class="col-sm-6 col-lg-4 mt-3 mt-lg-0 px-4 px-sm-3" data-zanim-timeline="{}" data-zanim-trigger="scroll">
+        <h5 data-zanim-xs='{"delay":0}'><span class="icon text-primary me-3 fas fa-flask"></span>Innovación
+          Verde
+        </h5>
+        <p class="mt-3 pe-3 pe-lg-5" data-zanim-xs='{"delay":0.1}'>Aplicamos tecnología avanzada
+          para innovar en
+          prácticas agrícolas ecológicas.</p>
+      </div>
+    </div>
+  </div>
+  <!-- end of .container-->
+</section>
+<!-- <section> close ============================-->
+<!-- Start Production Section -->
+<!-- ============================================-->
+
+
+<!-- ============================================-->
+<!-- Start Testimionials Section -->
+<!-- <section> begin ============================-->
+<section class="bg-white">
+  <div class="container">
+    <div class="swiper theme-slider" data-swiper='{"loop":true,"slidesPerView":1,"autoplay":{"delay":5000}}'>
+      <div class="swiper-wrapper">
+        {% for item in opinion_items %}
+        <div class="swiper-slide">
+          <div class="row px-lg-8">
+            <div class="col-4 col-md-3 mx-auto">
+              <img class="rounded-3 mx-auto img-fluid animated-image-sections" src="{{ item.foto.url }}"
+                alt="Cliente" />
+            </div>
+            <div class="col-md-9 mt-4 mt-md-0 px-4 px-sm-3">
+              <p class="lead">{{ item.comentario }}</p>
+              <h6 class="fs-0 mb-1 mt-4">{{ item.nombre_completo }}</h6>
+              <!-- <p class="mb-0 text-500">{{ item.posicion }}</p> -->
+            </div>
+          </div>
+        </div>
+        {% endfor %}
+      </div>
+      <div class="swiper-nav">
+        <div class="swiper-button-prev icon-item icon-item-lg">
+          <span class="fas fa-chevron-left fs--2"></span>
+        </div>
+        <div class="swiper-button-next icon-item icon-item-lg">
+          <span class="fas fa-chevron-right fs--2"></span>
+        </div>
+      </div>
+    </div>
+  </div>
+  <!-- end of .container-->
+</section>
+<!-- <section> close ============================-->
+<!-- Start Testimionials Section -->
+<!-- ============================================-->
+{% endblock content %}

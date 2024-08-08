@@ -6,16 +6,16 @@
     <div class="col-md-8 col-lg-6">
         <div class="card mt-3">
             <div class="card-header">
-                <div class="card-title text-center">Editar Carrusel</div>
+                <div class="card-title text-center">Editar Opinión</div>
             </div>
             <div class="card-body">
                 <div class="col-md-12">
-                    <form id="FormHandler" action="{% url 'editar-carrusel' carousel_item.pk %}" method="post" enctype="multipart/form-data">
+                    <form id="FormHandler" action="{% url 'editar-opinion' opinion_item.pk %}" method="post" enctype="multipart/form-data">
                         {% csrf_token %}
                         <div class="form-group">
                             <label for="fotoInput">Foto</label><br>
-                            <img src="{{ carousel_item.foto.url }}" 
-                            alt="{{ carousel_item.titulo }}" 
+                            <img src="{{ opinion_item.foto.url }}" 
+                            alt="{{ opinion_item.nombre }}" 
                             style=
                             " width: 100px; 
                               height: 100px; 
@@ -31,30 +31,29 @@
                         </div>
 
                         <div class="form-group">
-                            <label for="tituloInput">Título</label>
+                            <label for="nombreInput">Nombre</label>
                             <input
                                 type="text"
                                 class="form-control"
-                                id="tituloInput"
-                                name="titulo"
-                                placeholder="Título"
-                                value="{{ carousel_item.titulo }}"
+                                id="nombreInput"
+                                name="nombre"
+                                placeholder="Nombre"
+                                value="{{ opinion_item.nombre_completo }}"
                                 required
                             />
                         </div>
                         
                         <div class="form-group">
-                            <label for="descripcionInput">Descripción</label>
+                            <label for="comentarioInput">Comentario</label>
                             <textarea
                                 class="form-control"
-                                id="descripcionInput"
-                                name="descripcion"
-                                placeholder="Descripción"
-                                rows="4"
+                                id="comentarioInput"
+                                name="comentario"
+                                placeholder="Comentario"
+                                rows="6"
                                 required
-                            >{{ carousel_item.descripcion }}</textarea>
+                            >{{ opinion_item.comentario }}</textarea>
                         </div>
-                        
 
                         <div class="card-footer text-right">
                             <button
@@ -65,7 +64,7 @@
                               Guardar
                             </button>
 
-                            <a class="btn btn-danger" href="{% url 'carrusel' %}"><i class="fas fa-times"></i> Cancelar</a>
+                            <a class="btn btn-danger" href="{% url 'opiniones' %}"><i class="fas fa-times"></i> Cancelar</a>
                         </div>
                     </form>
                 </div>

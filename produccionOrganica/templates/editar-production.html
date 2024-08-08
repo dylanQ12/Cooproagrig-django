@@ -6,16 +6,16 @@
     <div class="col-md-8 col-lg-6">
         <div class="card mt-3">
             <div class="card-header">
-                <div class="card-title text-center">Editar Carrusel</div>
+                <div class="card-title text-center">Editar Producción</div>
             </div>
             <div class="card-body">
                 <div class="col-md-12">
-                    <form id="FormHandler" action="{% url 'editar-carrusel' carousel_item.pk %}" method="post" enctype="multipart/form-data">
+                    <form id="FormHandler" action="{% url 'editar-produccion' produccion_item.pk %}" method="post" enctype="multipart/form-data">
                         {% csrf_token %}
                         <div class="form-group">
                             <label for="fotoInput">Foto</label><br>
-                            <img src="{{ carousel_item.foto.url }}" 
-                            alt="{{ carousel_item.titulo }}" 
+                            <img src="{{ produccion_item.foto.url }}" 
+                            alt="{{ produccion_item.titulo }}" 
                             style=
                             " width: 100px; 
                               height: 100px; 
@@ -38,7 +38,7 @@
                                 id="tituloInput"
                                 name="titulo"
                                 placeholder="Título"
-                                value="{{ carousel_item.titulo }}"
+                                value="{{ produccion_item.titulo }}"
                                 required
                             />
                         </div>
@@ -50,9 +50,9 @@
                                 id="descripcionInput"
                                 name="descripcion"
                                 placeholder="Descripción"
-                                rows="4"
+                                rows="10"
                                 required
-                            >{{ carousel_item.descripcion }}</textarea>
+                            >{{ produccion_item.descripcion }}</textarea>
                         </div>
                         
 
@@ -65,7 +65,7 @@
                               Guardar
                             </button>
 
-                            <a class="btn btn-danger" href="{% url 'carrusel' %}"><i class="fas fa-times"></i> Cancelar</a>
+                            <a class="btn btn-danger" href="{% url 'produccion' %}"><i class="fas fa-times"></i> Cancelar</a>
                         </div>
                     </form>
                 </div>

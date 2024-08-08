@@ -7,7 +7,6 @@
 
 {% block content %}
 <div>
-  <a class="btn btn-success mb-4" href="{% url 'crear-carrusel' %}"><i class="fas fa-plus"></i> Nuevo</a>
   <a class="btn btn-secondary mb-4" href="{% url 'dashboard' %}"><i class="fas fa-home"></i> Inicio</a>
 </div>
 
@@ -15,47 +14,31 @@
   <div class="col-md-12">
     <div class="card">
       <div class="card-header">
-        <h4 class="card-title text-center">Carrusel</h4>
+        <h4 class="card-title text-center">Bandeja de Mensajes</h4>
       </div>
       <div class="card-body">
         <div class="table-responsive">
           <table id="basic-datatables" class="display table table-striped table-hover">
             <thead>
               <tr>
-                <th class="text-center">#</th>
-                <th class="text-center">Foto</th>
-                <th class="text-center">Título</th>
-                <th class="text-center">Descripción</th>
-                <th class="text-center">Acciones</th>
+                <th class="text-center">Nombre</th>
+                <th class="text-center">Email</th>
+                <th class="text-center">Mensaje</th>
+                <th class="text-center">Fecha de Envío</th>
+                <th class="text-center">Eliminar</th>
               </tr>
             </thead>
             <tbody>
-              {% for item in carousel_items %}
+              {% for item in messages %}
               <tr>
-                <td class="text-center">{{  forloop.counter }}</td>
-                <td class="text-center">
-                  <img src="{{ item.foto.url }}" 
-                  alt="{{ item.titulo }}" 
-                  style=
-                  " width: 85px; 
-                    height: 85px;
-                    object-fit: cover;
-                  "
-                  >
-                </td>
-                <td class="text-center">{{ item.titulo }}</td>
-                <td class="text-center">{{ item.descripcion }}</td>
+                <td class="text-center">{{ item.nombre }}</td>
+                <td class="text-center">{{ item.email }}</td>
+                <td class="text-center">{{ item.mensaje }}</td>
+                <td class="text-center">{{ item.fecha_enviado|date:"Y-m-d H:i" }}</td>
                 <td class="text-center">
                   <div class="form-button-action">
-                    <form action="{% url 'eliminar-carrusel' item.pk %}" method="post">
+                    <form action="{% url 'eliminar-mensaje' item.pk %}" method="post">
                       {% csrf_token %}
-                      <a
-                       data-bs-toggle="tooltip"
-                       class="btn btn-link btn-primary btn-lg btn-enlarge"
-                       href="{% url 'editar-carrusel' item.pk %}"
-                      >
-                      <i class="fas fa-pen"></i>
-                      </a>
                       <button
                        type="submit"
                        class=
@@ -63,7 +46,7 @@
                         btn-eliminar
                         btn-enlarge
                        "
-                       data-url="{% url 'eliminar-carrusel' item.pk %}"
+                       data-url="{% url 'eliminar-mensaje' item.pk %}"
                        >
                         <i class="fas fa-trash"></i>
                       </button>

@@ -27,7 +27,7 @@ document.addEventListener('DOMContentLoaded', function() {
           .then(response => response.json())
           .then(data => {
             if (data.success) {
-              swal("¡Eliminado!", "Se elimimó con éxito.", "success")
+              swal("¡Eliminado!", "¡Se eliminó satisfactoriamente!", "success")
               .then(() => {
                 window.location.reload();
               });
