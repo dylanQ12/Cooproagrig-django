@@ -16,7 +16,7 @@ DEBUG = True
 
 ALLOWED_HOSTS = []
 
-# ALLOWED_HOSTS = ["cooproagri.org", "www.cooproagri.org"]
+# ALLOWED_HOSTS = ["62.72.63.158", "cooproagri.org", "www.cooproagri.org"]
 
 LOGIN_URL = 'login'
 

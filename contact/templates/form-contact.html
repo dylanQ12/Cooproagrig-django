@@ -1,37 +1,51 @@
 <div class="card">
-    <div class="card-body h-100 p-5">
-        <h5 class="mb-3">Escríbenos</h5>
-        <form id="FormHandler" action="{% url 'enviar-mensaje' %}" method="post">
-            {% csrf_token %}
-            <div class="mb-4">
-                <input 
-                  class="form-control bg-white" 
-                  type="text" 
-                  placeholder="Escriba su Nombre"
-                  name="nombre"
-                  required="required" 
-                />
-            </div>
-            <div class="mb-4">
-                <input 
-                  class="form-control bg-white" 
-                  type="email"
-                  placeholder="Escriba su Email"
-                  name="correo"
-                  required="required" 
-                />
-            </div>
-            <div class="mb-4">
-                <textarea 
-                  class="form-control bg-white" 
-                  rows="11" 
-                  placeholder="Escriba su mensaje"
-                  required="required"
-                  name="message"
-                ></textarea>
-            </div>
-            <button type="submit" class="btn btn-md-lg btn-primary"> <span
-                    class="color-white fw-600">Enviar</span></button>
-        </form>
-    </div>
+  <div class="card-body h-100 p-5">
+      <h5 class="mb-3">Escríbenos</h5>
+      <form id="FormHandler" action="{% url 'enviar-mensaje' %}" method="post">
+          {% csrf_token %}
+          <!-- Campo Nombre -->
+          <div class="mb-4 input-group">
+              <div class="input-group-text">
+                  <i class="fas fa-user"></i>
+              </div>
+              <input 
+                class="form-control bg-white" 
+                type="text" 
+                placeholder="Escriba su Nombre"
+                name="nombre"
+                required="required" 
+              />
+          </div>
+          <!-- Campo Email -->
+          <div class="mb-4 input-group">
+              <div class="input-group-text">
+                  <i class="fas fa-envelope"></i>
+              </div>
+              <input 
+                class="form-control bg-white" 
+                type="email"
+                placeholder="Escriba su Email"
+                name="correo"
+                required="required" 
+              />
+          </div>
+          <!-- Campo Mensaje -->
+          <div class="mb-4 input-group">
+              <div class="input-group-text">
+                  <i class="fas fa-comment-dots"></i>
+              </div>
+              <textarea 
+                class="form-control bg-white" 
+                rows="8" 
+                placeholder="Escriba su mensaje"
+                required="required"
+                name="message"
+              ></textarea>
+          </div>
+          <!-- Botón de envío -->
+          <button type="submit" class="btn btn-md-lg btn-primary">
+              <span class="color-white fw-600">Enviar</span>
+          </button>
+      </form>
+  </div>
 </div>
