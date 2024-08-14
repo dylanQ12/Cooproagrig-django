@@ -1,4 +1,5 @@
-{% extends 'base.html' %} {% load static %}
+{% extends 'base.html' %} 
+{% load static %}
 
 {% block style_css %}
 <link rel="stylesheet" href="{% static 'css/login.css' %}">
@@ -9,7 +10,7 @@
 {% block content %}
 <section class="text-center py-0 position-relative">
     <div class="bg-holder overlay overlay-2"
-        style="background-image:url( {% static 'img/cooproagrig/bananera-1.jpg' %});">
+        style="background-image:url({% static 'img/cooproagrig/bananera-1.jpg' %});">
     </div>
     <!--/.bg-holder-->
 
@@ -17,8 +18,7 @@
         <div class="row min-vh-100 align-items-center">
             <div class="col-md-8 col-lg-5 mx-auto" data-zanim-timeline="{}" data-zanim-trigger="scroll">
                 <div class="mb-5" data-zanim-xs='{"delay":0,"duration":1}'>
-                    <a href="{% url 'login' %}"><img src="{% static 'img/cooproagrig/logoazul.png' %}"
-                            alt="logo" /></a>
+                    <a href="{% url 'login' %}"><img src="{% static 'img/cooproagrig/logoazul.png' %}" alt="logo" /></a>
                 </div>
                 <div class="card" data-zanim-xs='{"delay":0.1,"duration":1}'>
                     <div class="card-body p-md-5">
@@ -39,7 +39,7 @@
                                 <div class="col-12 mt-2 mt-sm-4">
                                     <div class="input-group">
                                         <div class="input-group-text" style="background-color: #001e57;"><span class="fas fa-lock"></span></div>
-                                        <input class="form-control" type="Password" name="password" placeholder="Clave"
+                                        <input class="form-control" type="password" name="password" placeholder="Clave"
                                             aria-label="Text input with dropdown button" 
                                             required
                                         />
@@ -65,5 +65,22 @@
     </div>
 </section>
 {% endblock content %}
+
+{% block scripts %}
+<script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+<!-- Alerta de errores con la librería Sweet Alert -->
+{% if attempted and error %}
+<script>
+    document.addEventListener("DOMContentLoaded", function() {
+        Swal.fire({
+            icon: 'error',
+            title: 'Error',
+            text: '{{ error|escapejs }}',
+            confirmButtonColor: '#001e57'
+        });
+    });
+</script>
+{% endif %}
+{% endblock scripts %}
 
 {% block footer %} {% endblock footer %}

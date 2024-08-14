@@ -1,6 +1,5 @@
 from django.shortcuts import render, redirect
 from django.contrib.auth import authenticate, login, logout
-from django.contrib import messages
 
 
 def loginView(request):
@@ -16,7 +15,11 @@ def loginView(request):
             login(request, user)
             return redirect("dashboard")
         else:
-            messages.error(request, "Nombre de usuario o clave incorrectos.")
+            context['error'] = "¡Nombre de usuario o clave incorrectos!"
+            context['attempted'] = True  # Solo se establece si hubo un intento fallido de inicio de sesión.
+    else:
+        context['attempted'] = False  # Explicitamente definido como False si es una solicitud GET
+    
     return render(request, "login.html", context)
 
 
