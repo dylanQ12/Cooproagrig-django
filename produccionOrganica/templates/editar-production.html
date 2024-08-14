@@ -12,7 +12,6 @@
                 <div class="col-md-12">
                     <form id="FormHandler" action="{% url 'editar-produccion' produccion_item.pk %}" method="post" enctype="multipart/form-data">
                         {% csrf_token %}
-                        
                         <div class="form-group">
                             <label for="fotoInput">Foto</label><br>
                             <img src="{{ produccion_item.foto.url }}" 

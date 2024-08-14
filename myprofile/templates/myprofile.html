@@ -12,7 +12,24 @@
                 <div class="col-md-12">
                     <form id="FormHandler" action="" method="post">
                         {% csrf_token %}
-                        
+                        <div class="form-group">
+                            <label for="usernameInput">Nombre de Usuario</label>
+                            <div class="input-group">
+                                <div class="input-group-text">
+                                    <i class="fas fa-user"></i>
+                                </div>
+                                <input
+                                    type="text"
+                                    class="form-control"
+                                    id="usernameInput"
+                                    name="username"
+                                    value="{{ username }}"
+                                    placeholder="Nombre de Usuario"
+                                    required
+                                />
+                            </div>
+                        </div>
+
                         <div class="form-group">
                             <label for="emailInput">Email</label>
                             <div class="input-group">
@@ -24,16 +41,38 @@
                                     class="form-control"
                                     id="emailInput"
                                     name="email"
+                                    value="{{ email }}"
                                     placeholder="Email"
+                                    readonly
                                 />
                             </div>
                         </div>
 
+                    {% if user.is_superuser or user.is_staff %}
                         <div class="form-group">
-                            <label for="passwordInput1">Nueva Clave</label>
+                            <label for="roleInput">Rol</label>
                             <div class="input-group">
                                 <div class="input-group-text">
-                                    <i class="fas fa-lock"></i>
+                                    <i class="fas fa-user-tag"></i>
+                                </div>
+                                <input
+                                    type="text"
+                                    class="form-control"
+                                    id="roleInput"
+                                    name="role"
+                                    value="{{ role }}"
+                                    placeholder="Rol"
+                                    readonly
+                                />
+                            </div>
+                        </div>
+                    {% endif %}
+
+                        <div class="form-group">
+                            <label for="passwordInput1">Cambiar Clave</label>
+                            <div class="input-group">
+                                <div class="input-group-text">
+                                    <i class="fas fa-key"></i>
                                 </div>
                                 <input
                                     type="password"
@@ -47,7 +86,7 @@
                         </div>
                         
                         <div class="form-group">
-                            <label for="password2Input">Repetir Clave</label>
+                            <label for="passwordInput2">Repetir Clave</label>
                             <div class="input-group">
                                 <div class="input-group-text">
                                     <i class="fas fa-lock"></i>
@@ -84,9 +123,23 @@
         </div>
     </div>
 </div>
-
 {% endblock forms %}
 
 {% block script_js %}
-<script src=" {% static 'admin/js/form-handler.js' %}"></script>
+<!-- Incluir SweetAlert para mostrar mensajes -->
+{% if messages %}
+  <script>
+    document.addEventListener('DOMContentLoaded', function () {
+        {% for message in messages %}
+            Swal.fire({
+                icon: "{% if message.tags == 'error' %}error{% elif message.tags == 'success' %}success{% else %}info{% endif %}",
+                title: "{{ message }}",
+                showConfirmButton: true,
+                confirmButtonText: "Aceptar",
+            });
+        {% endfor %}
+    });
+  </script>
+{% endif %}
+
 {% endblock script_js %}
