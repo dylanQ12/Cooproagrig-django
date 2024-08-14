@@ -12,40 +12,56 @@
                 <div class="col-md-12">
                     <form id="FormHandler" action="{% url 'crear-opinion' %}" method="post" enctype="multipart/form-data">
                         {% csrf_token %}
+                        
                         <div class="form-group">
                             <label for="fotoInput">Foto</label>
-                            <br><input
-                                type="file"
-                                class="form-file"
-                                id="fotoInput"
-                                name="foto"
-                                accept="image/*"
-                                required
-                            />
+                            <div class="input-group">
+                                <div class="input-group-text">
+                                    <i class="fas fa-image"></i>
+                                </div>
+                                <input
+                                    type="file"
+                                    class="form-control"
+                                    id="fotoInput"
+                                    name="foto"
+                                    accept="image/*"
+                                    required
+                                />
+                            </div>
                         </div>
 
                         <div class="form-group">
-                            <label for="tituloInput">Nombre</label>
-                            <input
-                                type="text"
-                                class="form-control"
-                                id="nombreInput"
-                                name="nombre"
-                                placeholder="Nombre"
-                                required
-                            />
+                            <label for="nombreInput">Nombre</label>
+                            <div class="input-group">
+                                <div class="input-group-text">
+                                    <i class="fas fa-user"></i>
+                                </div>
+                                <input
+                                    type="text"
+                                    class="form-control"
+                                    id="nombreInput"
+                                    name="nombre"
+                                    placeholder="Nombre"
+                                    required
+                                />
+                            </div>
                         </div>
                         
                         <div class="form-group">
                             <label for="comentarioInput">Comentario</label>
-                            <textarea
-                                class="form-control"
-                                id="comentarioInput"
-                                name="comentario"
-                                placeholder="Comentario"
-                                rows="4"
-                                required
-                            ></textarea>
+                            <div class="input-group">
+                                <div class="input-group-text">
+                                    <i class="fas fa-comment"></i>
+                                </div>
+                                <textarea
+                                    class="form-control"
+                                    id="comentarioInput"
+                                    name="comentario"
+                                    placeholder="Comentario"
+                                    rows="4"
+                                    required
+                                ></textarea>
+                            </div>
                         </div>
 
                         <div class="card-footer text-right">
@@ -69,7 +85,6 @@
         </div>
     </div>
 </div>
-
 {% endblock forms %}
 
 {% block script_js %}

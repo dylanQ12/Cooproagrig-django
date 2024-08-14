@@ -12,6 +12,7 @@
                 <div class="col-md-12">
                     <form id="FormHandler" action="{% url 'editar-carrusel' carousel_item.pk %}" method="post" enctype="multipart/form-data">
                         {% csrf_token %}
+                        
                         <div class="form-group">
                             <label for="fotoInput">Foto</label><br>
                             <img src="{{ carousel_item.foto.url }}" 
@@ -21,41 +22,56 @@
                               height: 100px; 
                               object-fit: cover;"
                             >
-                            <br><br><input
-                                type="file"
-                                class="form-file"
-                                id="fotoInput"
-                                name="foto"
-                                accept="image/*"
-                            />
+                            <br><br>
+                            <div class="input-group">
+                                <div class="input-group-text">
+                                    <i class="fas fa-image"></i>
+                                </div>
+                                <input
+                                    type="file"
+                                    class="form-control"
+                                    id="fotoInput"
+                                    name="foto"
+                                    accept="image/*"
+                                />
+                            </div>
                         </div>
 
                         <div class="form-group">
                             <label for="tituloInput">Título</label>
-                            <input
-                                type="text"
-                                class="form-control"
-                                id="tituloInput"
-                                name="titulo"
-                                placeholder="Título"
-                                value="{{ carousel_item.titulo }}"
-                                required
-                            />
+                            <div class="input-group">
+                                <div class="input-group-text">
+                                    <i class="fas fa-heading"></i>
+                                </div>
+                                <input
+                                    type="text"
+                                    class="form-control"
+                                    id="tituloInput"
+                                    name="titulo"
+                                    placeholder="Título"
+                                    value="{{ carousel_item.titulo }}"
+                                    required
+                                />
+                            </div>
                         </div>
                         
                         <div class="form-group">
                             <label for="descripcionInput">Descripción</label>
-                            <textarea
-                                class="form-control"
-                                id="descripcionInput"
-                                name="descripcion"
-                                placeholder="Descripción"
-                                rows="4"
-                                required
-                            >{{ carousel_item.descripcion }}</textarea>
+                            <div class="input-group">
+                                <div class="input-group-text">
+                                    <i class="fas fa-align-left"></i>
+                                </div>
+                                <textarea
+                                    class="form-control"
+                                    id="descripcionInput"
+                                    name="descripcion"
+                                    placeholder="Descripción"
+                                    rows="4"
+                                    required
+                                >{{ carousel_item.descripcion }}</textarea>
+                            </div>
                         </div>
                         
-
                         <div class="card-footer text-right">
                             <button
                               type="submit"
@@ -65,7 +81,9 @@
                               Guardar
                             </button>
 
-                            <a class="btn btn-danger" href="{% url 'carrusel' %}"><i class="fas fa-times"></i> Cancelar</a>
+                            <a class="btn btn-danger" href="{% url 'carrusel' %}">
+                                <i class="fas fa-times"></i> Cancelar
+                            </a>
                         </div>
                     </form>
                 </div>
