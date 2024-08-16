@@ -36,7 +36,7 @@
                                         />
                                     </div>
                                 </div>
-                                <div class="col-12 mt-2 mt-sm-4">
+                                <div class="col-12 mt-2 mt-sm-4 mb-1">
                                     <div class="input-group">
                                         <div class="input-group-text" style="background-color: #001e57;"><span class="fas fa-lock"></span></div>
                                         <input class="form-control" type="password" name="password" placeholder="Clave"
@@ -47,14 +47,9 @@
                                 </div>
                             </div>
                             <div class="row align-items-center mt-3">
-                                <div class="col-6">
-                                    <div class="form-check">
-                                        <input class="form-check-input" id="rememberMe" type="checkbox" value="" />
-                                        <label class="form-check-label text-500" for="rememberMe">Acuérdate de mí</label>
-                                    </div>
-                                </div>
-                                <div class="col-6 mt-2 mt-sm-3">
-                                    <button class="btn btn-primary w-100" style="background-color: #001e57;" type="submit">Entrar</button>
+                                <div>
+                                    <button class="btn btn-primary mr-1" style="background-color: #001e57;" type="submit"><i class="fas fa-sign-in-alt"></i> Entrar</button>
+                                    <a href="{% url 'home' %}" class="btn btn-warning"><i class="fas fa-home"></i> Inicio</a>
                                 </div>
                             </div>
                         </form>
