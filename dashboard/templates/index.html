@@ -8,11 +8,7 @@
 
 {% if user.is_authenticated %}
   <h3 class="fw-bold mb-3">Dashboard</h3>
-   {% if user.is_superuser %}
-     <h6 class="mb-3">¡Bienvenid@, Administrador!</h6>
-   {% else %}
-     <h6 class="mb-3">¡Bienvenid@, {{ user.first_name }}!</h6> 
-   {% endif %}  
+  <h6 class="mb-3">¡Bienvenid@, {{ user.first_name }}!</h6> 
 {% endif  %}   
 
 <div class="row">
