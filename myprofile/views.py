@@ -13,6 +13,7 @@ def profileView(request):
        
     if request.method == "POST":
         username = request.POST["username"]
+        email = request.POST["email"]
         password1 = request.POST["password1"]
         password2 = request.POST["password2"]
 
@@ -23,6 +24,7 @@ def profileView(request):
         else:
             user = request.user
             user.username = username
+            user.email = email
             user.set_password(password1)
             user.save()
             update_session_auth_hash(
